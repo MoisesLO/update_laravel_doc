@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:laravel/model/Item.dart';
+import 'model/Item.dart';
 import 'package:flutter_widget_from_html_core/flutter_widget_from_html_core.dart';
 
 class DetailPage extends StatelessWidget {

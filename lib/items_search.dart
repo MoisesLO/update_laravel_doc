@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_tutorial_es/detail_page.dart';
-import 'package:flutter_tutorial_es/model/Item.dart';
+import 'detail_page.dart';
+import 'model/Item.dart';
+
 class DataSearch extends SearchDelegate<Item> {
   List<Item> items;
   List<Item> itemsDisplay = List<Item>();
@@ -9,9 +10,13 @@ class DataSearch extends SearchDelegate<Item> {
 
   @override
   List<Widget> buildActions(BuildContext context) {
-    return [IconButton(icon: Icon(Icons.clear), onPressed: () {
-      query = '';
-    })];
+    return [
+      IconButton(
+          icon: Icon(Icons.clear),
+          onPressed: () {
+            query = '';
+          })
+    ];
   }
 
   @override
@@ -33,11 +38,13 @@ class DataSearch extends SearchDelegate<Item> {
     itemsDisplay = items
         .where((note) => note.title.toLowerCase().contains(query))
         .toList();
-    return itemsDisplay.length == 0 ? Text('No hay Resultados ...') : ListView.builder(
-        itemBuilder: (BuildContext context, int index) {
-          return _listItem(index, context);
-        },
-        itemCount: itemsDisplay.length);
+    return itemsDisplay.length == 0
+        ? Text('No hay Resultados ...')
+        : ListView.builder(
+            itemBuilder: (BuildContext context, int index) {
+              return _listItem(index, context);
+            },
+            itemCount: itemsDisplay.length);
   }
 
   _listItem(index, context) {

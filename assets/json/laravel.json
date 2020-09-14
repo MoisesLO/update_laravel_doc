@@ -1,297 +1,377 @@
 [
   {
-    "title": "1 ",
+    "title": "1 . Notas de lanzamiento",
     "subtitle": "Prologo",
     "content": ""
   },  
   {
-    "title": "",
+    "title": "2 . Guía de actualización",
     "subtitle": "Prologo",
     "content": ""
   },  
   {
-    "title": "",
+    "title": "3 . Guía de contribución",
     "subtitle": "Prologo",
     "content": ""
   },  
   {
-    "title": "",
-    "subtitle": "",
+    "title": "4 . Instalación",
+    "subtitle": "Primeros Pasos",
     "content": ""
   },  
   {
-    "title": "",
-    "subtitle": "",
+    "title": "5 . Configuración",
+    "subtitle": "Primeros Pasos",
     "content": ""
   },  
   {
-    "title": "",
-    "subtitle": "",
+    "title": "6 . Estructura de directorios",
+    "subtitle": "Primeros Pasos",
     "content": ""
   },  
   {
-    "title": "",
-    "subtitle": "",
+    "title": "7 . Laravel Homestead",
+    "subtitle": "Primeros pasos",
     "content": ""
   },  
   {
-    "title": "",
-    "subtitle": "",
+    "title": "8 . Laravel Valet",
+    "subtitle": "Primeros pasos",
     "content": ""
   },  
   {
-    "title": "",
-    "subtitle": "",
+    "title": "9 . Despliegue",
+    "subtitle": "Primeros pasos",
     "content": ""
   },  
   {
-    "title": "",
-    "subtitle": "",
+    "title": "10 . Ciclo de vida de la solicitud",
+    "subtitle": "Conceptos de arquitectura",
     "content": ""
   },  
   {
-    "title": "",
-    "subtitle": "",
+    "title": "11 . Contenedor de servicios",
+    "subtitle": "Conceptos de arquitectura",
     "content": ""
   },  
   {
-    "title": "",
-    "subtitle": "",
+    "title": "12 . Proveedores de Servicios",
+    "subtitle": "Conceptos de arquitectura",
     "content": ""
   },  
   {
-    "title": "",
-    "subtitle": "",
+    "title": "13 . Facades",
+    "subtitle": "Conceptos de arquitectura",
     "content": ""
   },  
   {
-    "title": "",
-    "subtitle": "",
+    "title": "14 . Contratos",
+    "subtitle": "Conceptos de arquitectura",
     "content": ""
   },  
   {
-    "title": "",
-    "subtitle": "",
+    "title": "15 . Rutas",
+    "subtitle": "Fundamentos",
     "content": ""
   },  
   {
-    "title": "",
-    "subtitle": "",
+    "title": "16 . Middleware",
+    "subtitle": "Fundamentos",
     "content": ""
   },  
   {
-    "title": "",
-    "subtitle": "",
+    "title": "17 . Protección CSRF",
+    "subtitle": "Fundamentos",
     "content": ""
   },  
   {
-    "title": "",
-    "subtitle": "",
+    "title": "18 . Controladores",
+    "subtitle": "Fundamentos",
     "content": ""
   },  
   {
-    "title": "",
-    "subtitle": "",
+    "title": "19 . Solicitudes HTTP",
+    "subtitle": "Fundamentos",
     "content": ""
   },  
   {
-    "title": "",
-    "subtitle": "",
+    "title": "20 . Respuestas HTTP",
+    "subtitle": "Fundamentos",
     "content": ""
   },  
   {
-    "title": "",
-    "subtitle": "",
+    "title": "21 . Vistas",
+    "subtitle": "Fundamentos",
     "content": ""
   },  
   {
-    "title": "",
-    "subtitle": "",
+    "title": "22 . Generación de URLs",
+    "subtitle": "Fundamentos",
     "content": ""
   },  
   {
-    "title": "",
-    "subtitle": "",
+    "title": "23 . Sesión HTTP",
+    "subtitle": "Fundamentos",
     "content": ""
   },  
   {
-    "title": "",
-    "subtitle": "",
+    "title": "24 . Validación",
+    "subtitle": "Fundamentos",
     "content": ""
   },  
   {
-    "title": "",
-    "subtitle": "",
+    "title": "25 . Manejo de errores",
+    "subtitle": "Fundamentos",
     "content": ""
   },  
   {
-    "title": "",
-    "subtitle": "",
+    "title": "26 . Registro (Logging)",
+    "subtitle": "Fundamentos",
     "content": ""
   },  
   {
-    "title": "",
-    "subtitle": "",
+    "title": "27 . Plantillas Blade(tutorial) ",
+    "subtitle": "Frontend",
     "content": ""
   },  
   {
-    "title": "",
-    "subtitle": "",
+    "title": "28 . Configuración regional(tutorial) ",
+    "subtitle": "Frontend",
     "content": ""
   },  
   {
-    "title": "",
-    "subtitle": "",
+    "title": "29 . JavaScript y estructuración de CSS(tutorial) ",
+    "subtitle": "Frontend",
     "content": ""
   },  
   {
-    "title": "",
-    "subtitle": "",
+    "title": "30 . Compilación de assets (Laravel Mix)(tutorial) ",
+    "subtitle": "Frontend",
     "content": ""
   },  
   {
-    "title": "",
-    "subtitle": "",
+    "title": "31 . Autenticación(tutorial) ",
+    "subtitle": "Seguridad",
     "content": ""
   },  
   {
-    "title": "",
-    "subtitle": "",
+    "title": "32 . Autenticación de API(tutorial) ",
+    "subtitle": "Seguridad",
     "content": ""
   },  
   {
-    "title": "",
-    "subtitle": "",
+    "title": "33 . Autorización(tutorial) ",
+    "subtitle": "Seguridad",
     "content": ""
   },  
   {
-    "title": "",
-    "subtitle": "",
+    "title": "34 . Verificación de correo electrónico(tutorial) ",
+    "subtitle": "Seguridad",
     "content": ""
   },  
   {
-    "title": "",
-    "subtitle": "",
+    "title": "35 . Cifrado(tutorial) ",
+    "subtitle": "Seguridad",
     "content": ""
   },  
   {
-    "title": "",
-    "subtitle": "",
+    "title": "36 . Hashing(tutorial) ",
+    "subtitle": "Seguridad",
     "content": ""
   },  
   {
-    "title": "",
-    "subtitle": "",
+    "title": "37 . Restablecimiento de contraseñas(tutorial) ",
+    "subtitle": "Seguridad",
     "content": ""
   },  
   {
-    "title": "",
-    "subtitle": "",
+    "title": "38 . Consola artisan(tutorial) ",
+    "subtitle": "Profundizando",
     "content": ""
   },  
   {
-    "title": "",
-    "subtitle": "",
+    "title": "39 . Broadcasting(tutorial) ",
+    "subtitle": "Profundizando",
     "content": ""
   },  
   {
-    "title": "",
-    "subtitle": "",
+    "title": "40 . Caché(tutorial) ",
+    "subtitle": "Profundizando",
     "content": ""
   },  
   {
-    "title": "",
-    "subtitle": "",
+    "title": "41 . Colecciones(tutorial) ",
+    "subtitle": "Profundizando",
     "content": ""
   },  
   {
-    "title": "",
-    "subtitle": "",
+    "title": "42 . Eventos(tutorial) ",
+    "subtitle": "Profundizando",
     "content": ""
   },  
   {
-    "title": "",
-    "subtitle": "",
+    "title": "43 . Almacenamiento de archivos(tutorial) ",
+    "subtitle": "Profundizando",
     "content": ""
   },  
   {
-    "title": "",
-    "subtitle": "",
+    "title": "44 . Helpers(tutorial) ",
+    "subtitle": "Profundizando",
     "content": ""
   },  
   {
-    "title": "",
-    "subtitle": "",
+    "title": "45 . Correos electrónicos(tutorial) ",
+    "subtitle": "Profundizando",
     "content": ""
   },  
   {
-    "title": "",
-    "subtitle": "",
+    "title": "46 . Notificaciones(tutorial) ",
+    "subtitle": "Profundizando",
     "content": ""
   },  
   {
-    "title": "",
-    "subtitle": "",
+    "title": "47 . Desarrollo de paquetes(tutorial) ",
+    "subtitle": "Profundizando",
     "content": ""
   },  
   {
-    "title": "",
-    "subtitle": "",
+    "title": "48 . Colas de trabajo(tutorial) ",
+    "subtitle": "Profundizando",
     "content": ""
   },  
   {
-    "title": "",
-    "subtitle": "",
+    "title": "49 . Programación de tareas(tutorial) ",
+    "subtitle": "Profundizando",
     "content": ""
   },  
   {
-    "title": "",
-    "subtitle": "",
+    "title": "50 . Bases de datos: Primeros pasos(tutorial) ",
+    "subtitle": "Bases de datos",
     "content": ""
   },  
   {
-    "title": "",
-    "subtitle": "",
+    "title": "51 . Base de datos: Constructor de consultas (query builder)(tutorial) ",
+    "subtitle": "Bases de datos",
     "content": ""
   },  
   {
-    "title": "",
-    "subtitle": "",
+    "title": "52 . Base de datos: Paginación(tutorial) ",
+    "subtitle": "Bases de datos",
     "content": ""
   },  
   {
-    "title": "",
-    "subtitle": "",
+    "title": "53 . Base de datos: Migraciones(tutorial) ",
+    "subtitle": "Bases de datos",
     "content": ""
   },  
   {
-    "title": "",
-    "subtitle": "",
+    "title": "54 . Base de datos: Seeding(tutorial) ",
+    "subtitle": "Bases de datos",
     "content": ""
   },  
   {
-    "title": "",
-    "subtitle": "",
+    "title": "55 . Redis(tutorial) ",
+    "subtitle": "Bases de datos",
     "content": ""
   },  
   {
-    "title": "",
-    "subtitle": "",
+    "title": "56 . Eloquent: Primeros Pasos(tutorial) ",
+    "subtitle": "ORM Eloquent",
     "content": ""
   },  
   {
-    "title": "",
-    "subtitle": "",
+    "title": "57 . Eloquent: Relaciones(tutorial) ",
+    "subtitle": "ORM Eloquent",
     "content": ""
   },  
   {
-    "title": "",
-    "subtitle": "",
+    "title": "58 . Eloquent: Colecciones(tutorial) ",
+    "subtitle": "ORM Eloquent",
     "content": ""
   },  
   {
-    "title": "",
-    "subtitle": "",
+    "title": "59 . Eloquent: Mutators(tutorial) ",
+    "subtitle": "ORM Eloquent",
     "content": ""
-  }  
+  },  
+  {
+    "title": "60 . Eloquent: Recursos API(tutorial) ",
+    "subtitle": "ORM Eloquent",
+    "content": ""
+  },  
+  {
+    "title": "61 . Eloquent: Serialización(tutorial) ",
+    "subtitle": "ORM Eloquent",
+    "content": ""
+  },  
+  {
+    "title": "62 . Pruebas: Primeros Pasos(tutorial) ",
+    "subtitle": "Pruebas",
+    "content": ""
+  },  
+  {
+    "title": "63 . Pruebas HTTP(tutorial) ",
+    "subtitle": "Pruebas",
+    "content": ""
+  },  
+  {
+    "title": "64 . Pruebas de consola(tutorial) ",
+    "subtitle": "Pruebas",
+    "content": ""
+  },  
+  {
+    "title": "65 . Laravel Dusk(tutorial) ",
+    "subtitle": "Pruebas",
+    "content": ""
+  },  
+  {
+    "title": "66 . Pruebas de base de datos(tutorial) ",
+    "subtitle": "Pruebas",
+    "content": ""
+  },  
+  {
+    "title": "67 . Mocking(tutorial) ",
+    "subtitle": "Pruebas",
+    "content": ""
+  },  
+  {
+    "title": "68 . Laravel Cashier(tutorial) ",
+    "subtitle": "Paquetes oficiales",
+    "content": ""
+  },  
+  {
+    "title": "69 . Laravel Dusk(tutorial) ",
+    "subtitle": "Paquetes oficiales",
+    "content": ""
+  },  
+  {
+    "title": "70 . Laravel Envoy(tutorial) ",
+    "subtitle": "Paquetes oficiales",
+    "content": ""
+  },  
+  {
+    "title": "71 . Laravel Horizon(tutorial) ",
+    "subtitle": "Paquetes oficiales",
+    "content": ""
+  },  
+  {
+    "title": "72 . Laravel Passport(tutorial) ",
+    "subtitle": "Paquetes oficiales",
+    "content": ""
+  },  
+  {
+    "title": "73 . Scout para Laravel(tutorial) ",
+    "subtitle": "Paquetes oficiales",
+    "content": ""
+  },  
+  {
+    "title": "74 . Laravel Socialite(tutorial) ",
+    "subtitle": "Paquetes oficiales",
+    "content": ""
+  },  
+  {
+    "title": "75 . Laravel Telescope(tutorial) ",
+    "subtitle": "Paquetes oficiales",
+    "content": ""
+  }
 ]
