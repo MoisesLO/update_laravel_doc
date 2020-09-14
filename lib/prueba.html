@@ -1,0 +1,1582 @@
+<div class="container">
+  <div class="col8 m-2_3 post-content col-main-cont">
+    <p class="post-meta">
+      <span class="post-author"><i class="icon-user"></i> Duilio Palacios </span>
+      <span class="post-date"><i class="icon-calendar"></i> 29/05/2020</span> <br>
+      <span class="post-category"><i class="icon-folder-open"></i> <a href="https://styde.net/category/documentacion/"
+          rel="category tag">Documentación</a>, <a href="https://styde.net/category/laravel/"
+          rel="category tag">Laravel</a></span>
+      <span class="post-comments"><i class="icon-chat"></i> <a
+          href="https://styde.net/laravel-6-doc-notas-de-lanzamiento/#disqus_thread"
+          data-disqus-identifier="28663 https://styde.net/?p=28663">0 Comentarios</a></span>
+    </p>
+    <ul>
+      <li><a href="#versioning-scheme">Esquema de versiones</a></li>
+      <li><a href="#support-policy">Política de soporte</a></li>
+      <li><a href="#laravel-5.8">Laravel 5.8</a></li>
+    </ul>
+    <p><a name="versioning-scheme"></a></p>
+    <h2>Esquema de versiones</h2>
+    <p>El esquema de versiones de Laravel mantiene la siguiente convención: <code
+        class="c-code">paradigma.mayor.menor</code>. Los lanzamientos mayores del framework se publican cada
+      seis meses (febrero y agosto), mientras que los lanzamientos menores se liberan cada semana. Los
+      lanzamientos menores <strong>nunca</strong> deben contener cambios de ruptura (breaking changes).</p>
+    <p>Cuando haces referencia al framework Laravel o sus componentes desde tu aplicación o paquete, debes utilizar
+      siempre una restricción de versión como <code class="c-code">5.7.*</code>, ya que las versiones mayores de
+      Laravel no incluyen cambios de ruptura. Sin embargo, nos esforzamos por asegurarnos siempre de que puedas
+      actualizar a una nueva versión mayor en un día o menos.</p>
+    <p>Los lanzamientos de cambios de paradigma están separados por muchos años y representan cambios fundamentales
+      en la arquitectura y las convenciones del framework. Actualmente, no hay ningún cambio de paradigma en
+      desarrollo.</p>
+    <p><a name="support-policy"></a></p>
+    <h2>Política de soporte</h2>
+    <p>Para las versiones LTS, como Laravel 5.5, se proporcionan correcciones de errores durante 2 años y
+      correcciones de seguridad por 3 años. Estas versiones proporcionan la ventana más larga de soporte y
+      mantenimiento. Para las versiones generales, las correcciones de errores se proporcionan durante 6 meses y
+      las correcciones de seguridad durante 1 año. Para todos los componentes adicionales, incluyendo Lumen, solo
+      la última versión recibe correcciones de errores.</p>
+    <table class="doc-table">
+      <thead>
+        <tr>
+          <th>Versión</th>
+          <th>Lanzamiento</th>
+          <th>Corrección de errores hasta</th>
+          <th>Correcciones de seguridad hasta</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>5.0</td>
+          <td>4 de febrero, 2015</td>
+          <td>4 de agosto, 2015</td>
+          <td>4 de febrero, 2016</td>
+        </tr>
+        <tr>
+          <td>5.1 (LTS)</td>
+          <td>9 de junio, 2015</td>
+          <td>9 de junio, 2017</td>
+          <td>9 de junio, 2018</td>
+        </tr>
+        <tr>
+          <td>5.2</td>
+          <td>21 de diciembre, 2015</td>
+          <td>21 de junio, 2016</td>
+          <td>21 de diciembre, 2016</td>
+        </tr>
+        <tr>
+          <td>5.3</td>
+          <td>23 de agosto, 2016</td>
+          <td>23 de febrero, 2017</td>
+          <td>23 de agosto, 2017</td>
+        </tr>
+        <tr>
+          <td>5.4</td>
+          <td>24 de enero, 2017</td>
+          <td>24 de julio, 2017</td>
+          <td>24 de enero, 2018</td>
+        </tr>
+        <tr>
+          <td>5.5 (LTS)</td>
+          <td>30 de agosto, 2017</td>
+          <td>30 de agosto, 2019</td>
+          <td>30 de agosto, 2020</td>
+        </tr>
+        <tr>
+          <td>5.6</td>
+          <td>7 de febrero, 2018</td>
+          <td>7 de agosto, 2018</td>
+          <td>7 de febrero, 2019</td>
+        </tr>
+        <tr>
+          <td>5.7</td>
+          <td>4 de septiembre, 2018</td>
+          <td>4 de marzo, 2019</td>
+          <td>4 de septiembre, 2019</td>
+        </tr>
+        <tr>
+          <td>5.8</td>
+          <td>26 de febrero, 2019</td>
+          <td>26 de agosto, 2019</td>
+          <td>26 de febrero, 2020</td>
+        </tr>
+      </tbody>
+    </table>
+    <p><a name="laravel-5.8"></a></p>
+    <h2>Laravel 5.8</h2>
+    <p>Laravel 5.8 continúa las mejoras realizadas en Laravel 5.7 con la introducción de relaciones
+      «has-one-through» (uno a través) en Eloquent, mejoras a la validación de correos electrónicos, registro
+      automático de políticas de autorización basado en convenciones, driver para caché y sesiones con DynamoDB,
+      mejoras a la configuración de la zona horaria para las tareas programadas, soporte para asignar múltiples
+      guards autenticación a canales de broadcast, cumplimento de PSR-16 para drivers de caché, mejoras al comando
+      <code class="c-code">artisan serve</code>, soporte para PHPUnit 8.0, soporte para Carbon 2.0, soporte para
+      Pheanstalk 4.0 y una variedad de otras correcciones de errores y mejoras de usabilidad.</p>
+    <p><span id="more-28663"></span></p>
+    <h3>Relaciones <code class="c-code">HasOneThrough</code> de Eloquent</h3>
+    <p>Eloquent ahora proporciona soporte para el tipo de relación <code class="c-code">hasOneThrough</code>. Por
+      ejemplo, imagina un modelo Supplier que tiene un (<code class="c-code">hasOne</code>) modelo Account, y un
+      modelo Account tiene un modelo AccountHistory. Puedes usar una relación <code class="c-code">hasOneThrough</code>
+      para acceder al historial de cuenta de un proveedor a través del
+      modelo Account:</p>
+    <pre>
+    /**
+    * Get the account history for the supplier.
+    */
+    public function accountHistory()
+    {
+        return $this-&gt;hasOneThrough(AccountHistory::class, Account::class);
+    }
+    </pre>
+
+    <p></p>
+    <h3>Autodescubrimiento de políticas de autorización</h3>
+    <p>Cuando se utiliza Laravel 5.7, cada <a
+        href="https://styde.net/laravel-6-doc-autorizacion/#creating-policies">política de autorización</a>
+      debía ser asociada explícitamente y registrada en el <code class="c-code">AuthServiceProvider</code> de tu
+      aplicación:</p>
+    <div id="crayon-5f5b5fc11cd68942922460"
+      class="crayon-syntax crayon-theme-tomorrow-night crayon-font-monospace crayon-os-pc print-yes notranslate crayon-wrapped"
+      data-settings=" minimize scroll-mouseover wrap"
+      style="margin-top: 24px; margin-bottom: 12px; font-size: 16px !important; line-height: 32px !important; height: auto;">
+      <div class="crayon-toolbar" data-settings=" mouseover overlay hide delay"
+        style="font-size: 16px !important; height: 24px !important; line-height: 24px !important; margin-top: -25px; display: none; position: absolute; z-index: 2;">
+        <span class="crayon-title"></span>
+        <div class="crayon-tools"
+          style="font-size: 16px !important;height: 24px !important; line-height: 24px !important;">
+          <div class="crayon-button crayon-plain-button" title="Cambiar a texto plano">
+            <div class="crayon-button-icon"></div>
+          </div>
+          <div class="crayon-button crayon-wrap-button crayon-pressed" title="Toggle Line Wrap">
+            <div class="crayon-button-icon"></div>
+          </div>
+          <div class="crayon-button crayon-expand-button" title="Expand Code" style="display: none;">
+            <div class="crayon-button-icon"></div>
+          </div>
+          <div class="crayon-button crayon-copy-button" title="Copy">
+            <div class="crayon-button-icon"></div>
+          </div>
+          <div class="crayon-button crayon-popup-button" title="Abrir el código en una nueva ventana">
+            <div class="crayon-button-icon"></div>
+          </div><span class="crayon-language">PHP</span>
+        </div>
+      </div>
+      <div class="crayon-info" style="min-height: 22.4px !important; line-height: 22.4px !important;"></div>
+      <div class="crayon-plain-wrap"><textarea class="crayon-plain print-no" data-settings="dblclick" readonly=""
+          style="tab-size: 4; font-size: 16px !important; line-height: 32px !important; z-index: 0; opacity: 0; overflow: hidden;">
+    /**
+    * The policy mappings for the application.
+    *
+    * @var array
+    */
+    protected $policies = [
+        'App\User' =&gt; 'App\Policies\UserPolicy',
+    ];
+    </textarea></div>
+      <div class="crayon-main" style="position: relative; z-index: 1; overflow: hidden;">
+        <table class="crayon-table" style="">
+          <tbody>
+            <tr class="crayon-row">
+              <td class="crayon-nums " data-settings="show">
+                <div class="crayon-nums-content" style="font-size: 16px !important; line-height: 32px !important;">
+                  <div class="crayon-num" data-line="crayon-5f5b5fc11cd68942922460-1" style="height: 32px;">1</div>
+                  <div class="crayon-num" data-line="crayon-5f5b5fc11cd68942922460-2" style="height: 32px;">2</div>
+                  <div class="crayon-num" data-line="crayon-5f5b5fc11cd68942922460-3" style="height: 32px;">3</div>
+                  <div class="crayon-num" data-line="crayon-5f5b5fc11cd68942922460-4" style="height: 32px;">4</div>
+                  <div class="crayon-num" data-line="crayon-5f5b5fc11cd68942922460-5" style="height: 32px;">5</div>
+                  <div class="crayon-num" data-line="crayon-5f5b5fc11cd68942922460-6" style="height: 32px;">6</div>
+                  <div class="crayon-num" data-line="crayon-5f5b5fc11cd68942922460-7" style="height: 32px;">7</div>
+                  <div class="crayon-num" data-line="crayon-5f5b5fc11cd68942922460-8" style="height: 32px;">8</div>
+                  <div class="crayon-num" data-line="crayon-5f5b5fc11cd68942922460-9" style="height: 32px;">9</div>
+                  <div class="crayon-num" data-line="crayon-5f5b5fc11cd68942922460-10" style="height: 32px;">10</div>
+                </div>
+              </td>
+              <td class="crayon-code">
+                <div class="crayon-pre"
+                  style="font-size: 16px !important; line-height: 32px !important; -moz-tab-size:4; -o-tab-size:4; -webkit-tab-size:4; tab-size:4;">
+                  <div class="crayon-line" id="crayon-5f5b5fc11cd68942922460-1">&nbsp;</div>
+                  <div class="crayon-line" id="crayon-5f5b5fc11cd68942922460-2"><span class="crayon-c">/**</span></div>
+                  <div class="crayon-line" id="crayon-5f5b5fc11cd68942922460-3"><span class="crayon-c">* The policy
+                      mappings for the application.</span></div>
+                  <div class="crayon-line" id="crayon-5f5b5fc11cd68942922460-4"><span class="crayon-c">*</span></div>
+                  <div class="crayon-line" id="crayon-5f5b5fc11cd68942922460-5"><span class="crayon-c">* @var
+                      array</span></div>
+                  <div class="crayon-line" id="crayon-5f5b5fc11cd68942922460-6"><span class="crayon-c">*/</span></div>
+                  <div class="crayon-line" id="crayon-5f5b5fc11cd68942922460-7"><span
+                      class="crayon-m">protected</span><span class="crayon-h"> </span><span
+                      class="crayon-v">$policies</span><span class="crayon-h"> </span><span
+                      class="crayon-o">=</span><span class="crayon-h"> </span><span class="crayon-sy">[</span></div>
+                  <div class="crayon-line" id="crayon-5f5b5fc11cd68942922460-8"><span
+                      class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-s">'App\User'</span><span
+                      class="crayon-h"> </span><span class="crayon-o">=</span><span class="crayon-o">&gt;</span><span
+                      class="crayon-h"> </span><span class="crayon-s">'App\Policies\UserPolicy'</span><span
+                      class="crayon-sy">,</span></div>
+                  <div class="crayon-line" id="crayon-5f5b5fc11cd68942922460-9"><span class="crayon-sy">]</span><span
+                      class="crayon-sy">;</span></div>
+                  <div class="crayon-line" id="crayon-5f5b5fc11cd68942922460-10">&nbsp;</div>
+                </div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <p>Laravel 5.8 introduce el autodescubrimiento de políticas siempre que el modelo y la política sigan las
+      convenciones estándar de nomenclatura de Laravel. Específicamente, las políticas deben estar en un
+      directorio <code class="c-code">Policies</code> debajo del directorio que contiene los modelos. Así, por
+      ejemplo, los modelos pueden colocarse en el directorio <code class="c-code">app</code> mientras que las
+      políticas pueden ubicarse en el directorio <code class="c-code">app/Policies</code>. Además, el nombre de la
+      política debe coincidir con el nombre del modelo y tener un sufijo <code class="c-code">Policy</code>.
+      Entonces, un modelo <code class="c-code">User</code> corresponderá a una clase<code
+        class="c-code"> UserPolicy</code>.</p>
+    <p>Si deseas proporcionar tu propia lógica para el descubrimiento de políticas, puedes registrar un callback
+      personalizado utilizando el método <code class="c-code">Gate::guessPolicyNamesUsing</code>. Normalmente,
+      este método debe llamarse desde el <code class="c-code">AuthServiceProvider</code> de tu aplicación:</p>
+    <div id="crayon-5f5b5fc11cd6b769110810"
+      class="crayon-syntax crayon-theme-tomorrow-night crayon-font-monospace crayon-os-pc print-yes notranslate crayon-wrapped"
+      data-settings=" minimize scroll-mouseover wrap"
+      style="margin-top: 24px; margin-bottom: 12px; font-size: 16px !important; line-height: 32px !important; height: auto;">
+      <div class="crayon-toolbar" data-settings=" mouseover overlay hide delay"
+        style="font-size: 16px !important; height: 24px !important; line-height: 24px !important; margin-top: -25px; display: none; position: absolute; z-index: 2;">
+        <span class="crayon-title"></span>
+        <div class="crayon-tools"
+          style="font-size: 16px !important;height: 24px !important; line-height: 24px !important;">
+          <div class="crayon-button crayon-plain-button" title="Cambiar a texto plano">
+            <div class="crayon-button-icon"></div>
+          </div>
+          <div class="crayon-button crayon-wrap-button crayon-pressed" title="Toggle Line Wrap">
+            <div class="crayon-button-icon"></div>
+          </div>
+          <div class="crayon-button crayon-expand-button" title="Expand Code" style="display: none;">
+            <div class="crayon-button-icon"></div>
+          </div>
+          <div class="crayon-button crayon-copy-button" title="Copy">
+            <div class="crayon-button-icon"></div>
+          </div>
+          <div class="crayon-button crayon-popup-button" title="Abrir el código en una nueva ventana">
+            <div class="crayon-button-icon"></div>
+          </div><span class="crayon-language">PHP</span>
+        </div>
+      </div>
+      <div class="crayon-info"
+        style="min-height: 22.4px !important; line-height: 22.4px !important; margin-top: -23px; display: none;">
+      </div>
+      <div class="crayon-plain-wrap"><textarea class="crayon-plain print-no" data-settings="dblclick" readonly=""
+          style="tab-size: 4; font-size: 16px !important; line-height: 32px !important; z-index: 0; opacity: 0; overflow: hidden; height: 224px;">
+    use Illuminate\Support\Facades\Gate;
+    
+    Gate::guessPolicyNamesUsing(function ($modelClass) {
+        // return policy class name...
+    });
+    </textarea></div>
+      <div class="crayon-main" style="position: relative; z-index: 1; overflow: hidden; opacity: 1;">
+        <table class="crayon-table" style="">
+          <tbody>
+            <tr class="crayon-row">
+              <td class="crayon-nums " data-settings="show">
+                <div class="crayon-nums-content" style="font-size: 16px !important; line-height: 32px !important;">
+                  <div class="crayon-num" data-line="crayon-5f5b5fc11cd6b769110810-1" style="height: 32px;">1</div>
+                  <div class="crayon-num" data-line="crayon-5f5b5fc11cd6b769110810-2" style="height: 32px;">2</div>
+                  <div class="crayon-num" data-line="crayon-5f5b5fc11cd6b769110810-3" style="height: 32px;">3</div>
+                  <div class="crayon-num" data-line="crayon-5f5b5fc11cd6b769110810-4" style="height: 32px;">4</div>
+                  <div class="crayon-num" data-line="crayon-5f5b5fc11cd6b769110810-5" style="height: 32px;">5</div>
+                  <div class="crayon-num" data-line="crayon-5f5b5fc11cd6b769110810-6" style="height: 32px;">6</div>
+                  <div class="crayon-num" data-line="crayon-5f5b5fc11cd6b769110810-7" style="height: 32px;">7</div>
+                </div>
+              </td>
+              <td class="crayon-code">
+                <div class="crayon-pre"
+                  style="font-size: 16px !important; line-height: 32px !important; -moz-tab-size:4; -o-tab-size:4; -webkit-tab-size:4; tab-size:4;">
+                  <div class="crayon-line" id="crayon-5f5b5fc11cd6b769110810-1">&nbsp;</div>
+                  <div class="crayon-line" id="crayon-5f5b5fc11cd6b769110810-2"><span class="crayon-st">use</span><span
+                      class="crayon-h"> </span><span class="crayon-i">Illuminate</span><span
+                      class="crayon-sy">\</span><span class="crayon-i">Support</span><span
+                      class="crayon-sy">\</span><span class="crayon-i">Facades</span><span
+                      class="crayon-sy">\</span><span class="crayon-i">Gate</span><span class="crayon-sy">;</span></div>
+                  <div class="crayon-line" id="crayon-5f5b5fc11cd6b769110810-3">&nbsp;</div>
+                  <div class="crayon-line" id="crayon-5f5b5fc11cd6b769110810-4"><span
+                      class="crayon-e">Gate::</span><span class="crayon-e">guessPolicyNamesUsing</span><span
+                      class="crayon-sy">(</span><span class="crayon-t">function</span><span class="crayon-h">
+                    </span><span class="crayon-sy">(</span><span class="crayon-v">$modelClass</span><span
+                      class="crayon-sy">)</span><span class="crayon-h"> </span><span class="crayon-sy">{</span></div>
+                  <div class="crayon-line" id="crayon-5f5b5fc11cd6b769110810-5"><span
+                      class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-c">//
+                      return policy class name...</span></div>
+                  <div class="crayon-line" id="crayon-5f5b5fc11cd6b769110810-6"><span class="crayon-sy">}</span><span
+                      class="crayon-sy">)</span><span class="crayon-sy">;</span></div>
+                  <div class="crayon-line" id="crayon-5f5b5fc11cd6b769110810-7">&nbsp;</div>
+                </div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <p></p>
+    <p class="p-warning">Cualquier política que se asigne explícitamente en su <code
+        class="c-code">AuthServiceProvider</code> tendrá prioridad sobre cualquier posible política de
+      autodescubrimiento.</p>
+    <h3>Cumplimiento de PSR-16 para caché</h3>
+    <p>Para permitir un tiempo de caducidad más granular al almacenar elementos y cumplir con el estándar de
+      almacenamiento en caché PSR-16, el tiempo de vida del elemento de caché ha cambiado de minutos a segundos.
+      Los métodos <code class="c-code">put</code>, <code class="c-code">putMany</code>, <code class="c-code">add</code>,
+      <code class="c-code">remember</code> y <code class="c-code">setDefaultCacheTime</code> de la clase <code
+        class="c-code">Illuminate\Cache\Repository</code> y sus clases extendidas, así como el método <code
+        class="c-code">put</code> de cada almacén de caché se actualizaron con este comportamiento modificado.
+      Visita el <a href="https://github.com/laravel/framework/pull/27276">PR relacionado</a> para más información.
+    </p>
+    <p>Si estás pasando un número entero a cualquiera de estos métodos, debes actualizar tu código para asegurarte
+      de que ahora está pasando la cantidad de segundos que deseas que el elemento permanezca en el caché.
+      Alternativamente, puedes pasar una instancia de <code class="c-code">DateTime</code> que indique cuándo debe
+      expirar el elemento:</p>
+    <div id="crayon-5f5b5fc11cd6d995931249"
+      class="crayon-syntax crayon-theme-tomorrow-night crayon-font-monospace crayon-os-pc print-yes notranslate crayon-wrapped"
+      data-settings=" minimize scroll-mouseover wrap"
+      style="margin-top: 24px; margin-bottom: 12px; font-size: 16px !important; line-height: 32px !important; height: auto;">
+      <div class="crayon-toolbar" data-settings=" mouseover overlay hide delay"
+        style="font-size: 16px !important; height: 24px !important; line-height: 24px !important; margin-top: -25px; display: none; position: absolute; z-index: 2;">
+        <span class="crayon-title"></span>
+        <div class="crayon-tools"
+          style="font-size: 16px !important;height: 24px !important; line-height: 24px !important;">
+          <div class="crayon-button crayon-plain-button" title="Cambiar a texto plano">
+            <div class="crayon-button-icon"></div>
+          </div>
+          <div class="crayon-button crayon-wrap-button crayon-pressed" title="Toggle Line Wrap">
+            <div class="crayon-button-icon"></div>
+          </div>
+          <div class="crayon-button crayon-expand-button" title="Expand Code" style="display: none;">
+            <div class="crayon-button-icon"></div>
+          </div>
+          <div class="crayon-button crayon-copy-button" title="Copy">
+            <div class="crayon-button-icon"></div>
+          </div>
+          <div class="crayon-button crayon-popup-button" title="Abrir el código en una nueva ventana">
+            <div class="crayon-button-icon"></div>
+          </div><span class="crayon-language">PHP</span>
+        </div>
+      </div>
+      <div class="crayon-info"
+        style="min-height: 22.4px !important; line-height: 22.4px !important; margin-top: -23px; display: none;">
+      </div>
+      <div class="crayon-plain-wrap"><textarea class="crayon-plain print-no" data-settings="dblclick" readonly=""
+          style="tab-size: 4; font-size: 16px !important; line-height: 32px !important; z-index: 0; opacity: 0; overflow: hidden;">
+    // Laravel 5.7 - Store item for 30 minutes...
+    Cache::put('foo', 'bar', 30);
+    
+    // Laravel 5.8 - Store item for 30 seconds...
+    Cache::put('foo', 'bar', 30);
+    
+    // Laravel 5.7 / 5.8 - Store item for 30 seconds...
+    Cache::put('foo', 'bar', now()-&gt;addSeconds(30));
+    </textarea></div>
+      <div class="crayon-main" style="position: relative; z-index: 1; overflow: hidden;">
+        <table class="crayon-table" style="">
+          <tbody>
+            <tr class="crayon-row">
+              <td class="crayon-nums " data-settings="show">
+                <div class="crayon-nums-content" style="font-size: 16px !important; line-height: 32px !important;">
+                  <div class="crayon-num" data-line="crayon-5f5b5fc11cd6d995931249-1" style="height: 32px;">1</div>
+                  <div class="crayon-num" data-line="crayon-5f5b5fc11cd6d995931249-2" style="height: 32px;">2</div>
+                  <div class="crayon-num" data-line="crayon-5f5b5fc11cd6d995931249-3" style="height: 32px;">3</div>
+                  <div class="crayon-num" data-line="crayon-5f5b5fc11cd6d995931249-4" style="height: 32px;">4</div>
+                  <div class="crayon-num" data-line="crayon-5f5b5fc11cd6d995931249-5" style="height: 32px;">5</div>
+                  <div class="crayon-num" data-line="crayon-5f5b5fc11cd6d995931249-6" style="height: 32px;">6</div>
+                  <div class="crayon-num" data-line="crayon-5f5b5fc11cd6d995931249-7" style="height: 32px;">7</div>
+                  <div class="crayon-num" data-line="crayon-5f5b5fc11cd6d995931249-8" style="height: 32px;">8</div>
+                  <div class="crayon-num" data-line="crayon-5f5b5fc11cd6d995931249-9" style="height: 32px;">9</div>
+                  <div class="crayon-num" data-line="crayon-5f5b5fc11cd6d995931249-10" style="height: 32px;">10</div>
+                </div>
+              </td>
+              <td class="crayon-code">
+                <div class="crayon-pre"
+                  style="font-size: 16px !important; line-height: 32px !important; -moz-tab-size:4; -o-tab-size:4; -webkit-tab-size:4; tab-size:4;">
+                  <div class="crayon-line" id="crayon-5f5b5fc11cd6d995931249-1">&nbsp;</div>
+                  <div class="crayon-line" id="crayon-5f5b5fc11cd6d995931249-2"><span class="crayon-c">// Laravel 5.7 -
+                      Store item for 30 minutes...</span></div>
+                  <div class="crayon-line" id="crayon-5f5b5fc11cd6d995931249-3"><span
+                      class="crayon-e">Cache::</span><span class="crayon-e">put</span><span
+                      class="crayon-sy">(</span><span class="crayon-s">'foo'</span><span class="crayon-sy">,</span><span
+                      class="crayon-h"> </span><span class="crayon-s">'bar'</span><span class="crayon-sy">,</span><span
+                      class="crayon-h"> </span><span class="crayon-cn">30</span><span class="crayon-sy">)</span><span
+                      class="crayon-sy">;</span></div>
+                  <div class="crayon-line" id="crayon-5f5b5fc11cd6d995931249-4">&nbsp;</div>
+                  <div class="crayon-line" id="crayon-5f5b5fc11cd6d995931249-5"><span class="crayon-c">// Laravel 5.8 -
+                      Store item for 30 seconds...</span></div>
+                  <div class="crayon-line" id="crayon-5f5b5fc11cd6d995931249-6"><span
+                      class="crayon-e">Cache::</span><span class="crayon-e">put</span><span
+                      class="crayon-sy">(</span><span class="crayon-s">'foo'</span><span class="crayon-sy">,</span><span
+                      class="crayon-h"> </span><span class="crayon-s">'bar'</span><span class="crayon-sy">,</span><span
+                      class="crayon-h"> </span><span class="crayon-cn">30</span><span class="crayon-sy">)</span><span
+                      class="crayon-sy">;</span></div>
+                  <div class="crayon-line" id="crayon-5f5b5fc11cd6d995931249-7">&nbsp;</div>
+                  <div class="crayon-line" id="crayon-5f5b5fc11cd6d995931249-8"><span class="crayon-c">// Laravel 5.7 /
+                      5.8 - Store item for 30 seconds...</span>
+                  </div>
+                  <div class="crayon-line" id="crayon-5f5b5fc11cd6d995931249-9"><span
+                      class="crayon-e">Cache::</span><span class="crayon-e">put</span><span
+                      class="crayon-sy">(</span><span class="crayon-s">'foo'</span><span class="crayon-sy">,</span><span
+                      class="crayon-h"> </span><span class="crayon-s">'bar'</span><span class="crayon-sy">,</span><span
+                      class="crayon-h"> </span><span class="crayon-e">now</span><span class="crayon-sy">(</span><span
+                      class="crayon-sy">)</span><span class="crayon-o">-&gt;</span><span
+                      class="crayon-e">addSeconds</span><span class="crayon-sy">(</span><span
+                      class="crayon-cn">30</span><span class="crayon-sy">)</span><span class="crayon-sy">)</span><span
+                      class="crayon-sy">;</span></div>
+                  <div class="crayon-line" id="crayon-5f5b5fc11cd6d995931249-10">&nbsp;</div>
+                </div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <p></p>
+    <h3>Múltiples guards de autentificación para broadcast</h3>
+    <p>En versiones anteriores de Laravel, los canales de transmisión privados y de presencia autenticaban al
+      usuario a través de la protección de autenticación predeterminada de tu aplicación. A partir de Laravel 5.8,
+      ahora puedes asignar múltiples «guards» (guardias) que deben autenticar la solicitud entrante:</p>
+    <div id="crayon-5f5b5fc11cd70894969656"
+      class="crayon-syntax crayon-theme-tomorrow-night crayon-font-monospace crayon-os-pc print-yes notranslate crayon-wrapped"
+      data-settings=" minimize scroll-mouseover wrap"
+      style="margin-top: 24px; margin-bottom: 12px; font-size: 16px !important; line-height: 32px !important; height: auto;">
+      <div class="crayon-toolbar" data-settings=" mouseover overlay hide delay"
+        style="font-size: 16px !important; height: 24px !important; line-height: 24px !important; margin-top: -25px; display: none; position: absolute; z-index: 2;">
+        <span class="crayon-title"></span>
+        <div class="crayon-tools"
+          style="font-size: 16px !important;height: 24px !important; line-height: 24px !important;">
+          <div class="crayon-button crayon-plain-button" title="Cambiar a texto plano">
+            <div class="crayon-button-icon"></div>
+          </div>
+          <div class="crayon-button crayon-wrap-button crayon-pressed" title="Toggle Line Wrap">
+            <div class="crayon-button-icon"></div>
+          </div>
+          <div class="crayon-button crayon-expand-button" title="Expand Code" style="display: none;">
+            <div class="crayon-button-icon"></div>
+          </div>
+          <div class="crayon-button crayon-copy-button" title="Copy">
+            <div class="crayon-button-icon"></div>
+          </div>
+          <div class="crayon-button crayon-popup-button" title="Abrir el código en una nueva ventana">
+            <div class="crayon-button-icon"></div>
+          </div><span class="crayon-language">PHP</span>
+        </div>
+      </div>
+      <div class="crayon-info" style="min-height: 22.4px !important; line-height: 22.4px !important;"></div>
+      <div class="crayon-plain-wrap"><textarea class="crayon-plain print-no" data-settings="dblclick" readonly=""
+          style="tab-size: 4; font-size: 16px !important; line-height: 32px !important; z-index: 0; opacity: 0; overflow: hidden;">
+    Broadcast::channel('channel', function() {
+        // ...
+    }, ['guards' =&gt; ['web', 'admin']])
+    </textarea></div>
+      <div class="crayon-main" style="position: relative; z-index: 1; overflow: hidden;">
+        <table class="crayon-table" style="">
+          <tbody>
+            <tr class="crayon-row">
+              <td class="crayon-nums " data-settings="show">
+                <div class="crayon-nums-content" style="font-size: 16px !important; line-height: 32px !important;">
+                  <div class="crayon-num" data-line="crayon-5f5b5fc11cd70894969656-1" style="height: 32px;">1</div>
+                  <div class="crayon-num" data-line="crayon-5f5b5fc11cd70894969656-2" style="height: 32px;">2</div>
+                  <div class="crayon-num" data-line="crayon-5f5b5fc11cd70894969656-3" style="height: 32px;">3</div>
+                  <div class="crayon-num" data-line="crayon-5f5b5fc11cd70894969656-4" style="height: 32px;">4</div>
+                  <div class="crayon-num" data-line="crayon-5f5b5fc11cd70894969656-5" style="height: 32px;">5</div>
+                </div>
+              </td>
+              <td class="crayon-code">
+                <div class="crayon-pre"
+                  style="font-size: 16px !important; line-height: 32px !important; -moz-tab-size:4; -o-tab-size:4; -webkit-tab-size:4; tab-size:4;">
+                  <div class="crayon-line" id="crayon-5f5b5fc11cd70894969656-1">&nbsp;</div>
+                  <div class="crayon-line" id="crayon-5f5b5fc11cd70894969656-2"><span
+                      class="crayon-e">Broadcast::</span><span class="crayon-e">channel</span><span
+                      class="crayon-sy">(</span><span class="crayon-s">'channel'</span><span
+                      class="crayon-sy">,</span><span class="crayon-h"> </span><span
+                      class="crayon-t">function</span><span class="crayon-sy">(</span><span
+                      class="crayon-sy">)</span><span class="crayon-h"> </span><span class="crayon-sy">{</span></div>
+                  <div class="crayon-line" id="crayon-5f5b5fc11cd70894969656-3"><span
+                      class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-c">//
+                      ...</span></div>
+                  <div class="crayon-line" id="crayon-5f5b5fc11cd70894969656-4"><span class="crayon-sy">}</span><span
+                      class="crayon-sy">,</span><span class="crayon-h"> </span><span class="crayon-sy">[</span><span
+                      class="crayon-s">'guards'</span><span class="crayon-h"> </span><span
+                      class="crayon-o">=</span><span class="crayon-o">&gt;</span><span class="crayon-h"> </span><span
+                      class="crayon-sy">[</span><span class="crayon-s">'web'</span><span class="crayon-sy">,</span><span
+                      class="crayon-h"> </span><span class="crayon-s">'admin'</span><span
+                      class="crayon-sy">]</span><span class="crayon-sy">]</span><span class="crayon-sy">)</span></div>
+                  <div class="crayon-line" id="crayon-5f5b5fc11cd70894969656-5">&nbsp;</div>
+                </div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <p></p>
+    <h3>Token Guard Token Hashing</h3>
+    <p>El <code class="c-code">token</code> guard de Laravel, que proporciona autenticación de API básica, ahora
+      admite el almacenamiento de tokens de API como hashes SHA-256. Esto proporciona una seguridad mejorada sobre
+      el almacenamiento de tokens de texto sin formato. Para obtener más información sobre los tokens con hash,
+      revisa la <a href="https://styde.net/laravel-6-doc-autenticacion-de-api/">documentación de autenticación
+        API</a>.</p>
+    <p class="p-warning">Si bien Laravel viene con una protección de autenticación simple basada en token, te
+      recomendamos encarecidamente que consideres usar <a href="https://styde.net/laravel-6-doc-passport/">Laravel
+        Passport</a> Para aplicaciones de producción robustas que ofrecen autenticación API.</p>
+    <h3>Mejoras a la validación de correos electrónicos</h3>
+    <p>Laravel 5.8 introduce mejoras en la lógica de validación de correos electrónicos subyacente del validador al
+      adoptar el paquete <code class="c-code">egulias/email-validator</code> utilizado por SwiftMailer. La lógica
+      de validación de correos electrónicos anterior de Laravel a veces consideraba que los correos electrónicos
+      válidos, como <code class="c-code">example@bär.se</code>, eran inválidos.</p>
+    <h3>Zona horaria predetermina para las tareas programadas</h3>
+    <p>Laravel te permite personalizar la zona horaria de una tarea programada usando el método <code
+        class="c-code">timezone</code>:</p>
+    <div id="crayon-5f5b5fc11cd72532841050"
+      class="crayon-syntax crayon-theme-tomorrow-night crayon-font-monospace crayon-os-pc print-yes notranslate crayon-wrapped"
+      data-settings=" minimize scroll-mouseover wrap"
+      style="margin-top: 24px; margin-bottom: 12px; font-size: 16px !important; line-height: 32px !important; height: auto;">
+      <div class="crayon-toolbar" data-settings=" mouseover overlay hide delay"
+        style="font-size: 16px !important; height: 24px !important; line-height: 24px !important; margin-top: -25px; display: none; position: absolute; z-index: 2;">
+        <span class="crayon-title"></span>
+        <div class="crayon-tools"
+          style="font-size: 16px !important;height: 24px !important; line-height: 24px !important;">
+          <div class="crayon-button crayon-plain-button" title="Cambiar a texto plano">
+            <div class="crayon-button-icon"></div>
+          </div>
+          <div class="crayon-button crayon-wrap-button crayon-pressed" title="Toggle Line Wrap">
+            <div class="crayon-button-icon"></div>
+          </div>
+          <div class="crayon-button crayon-expand-button" title="Expand Code" style="display: none;">
+            <div class="crayon-button-icon"></div>
+          </div>
+          <div class="crayon-button crayon-copy-button" title="Copy">
+            <div class="crayon-button-icon"></div>
+          </div>
+          <div class="crayon-button crayon-popup-button" title="Abrir el código en una nueva ventana">
+            <div class="crayon-button-icon"></div>
+          </div><span class="crayon-language">PHP</span>
+        </div>
+      </div>
+      <div class="crayon-info" style="min-height: 22.4px !important; line-height: 22.4px !important;"></div>
+      <div class="crayon-plain-wrap"><textarea class="crayon-plain print-no" data-settings="dblclick" readonly=""
+          style="tab-size: 4; font-size: 16px !important; line-height: 32px !important; z-index: 0; opacity: 0; overflow: hidden;">
+    $schedule-&gt;command('inspire')
+             -&gt;hourly()
+             -&gt;timezone('America/Chicago');
+    </textarea></div>
+      <div class="crayon-main" style="position: relative; z-index: 1; overflow: hidden;">
+        <table class="crayon-table" style="">
+          <tbody>
+            <tr class="crayon-row">
+              <td class="crayon-nums " data-settings="show">
+                <div class="crayon-nums-content" style="font-size: 16px !important; line-height: 32px !important;">
+                  <div class="crayon-num" data-line="crayon-5f5b5fc11cd72532841050-1" style="height: 32px;">1</div>
+                  <div class="crayon-num" data-line="crayon-5f5b5fc11cd72532841050-2" style="height: 32px;">2</div>
+                  <div class="crayon-num" data-line="crayon-5f5b5fc11cd72532841050-3" style="height: 32px;">3</div>
+                  <div class="crayon-num" data-line="crayon-5f5b5fc11cd72532841050-4" style="height: 32px;">4</div>
+                  <div class="crayon-num" data-line="crayon-5f5b5fc11cd72532841050-5" style="height: 32px;">5</div>
+                </div>
+              </td>
+              <td class="crayon-code">
+                <div class="crayon-pre"
+                  style="font-size: 16px !important; line-height: 32px !important; -moz-tab-size:4; -o-tab-size:4; -webkit-tab-size:4; tab-size:4;">
+                  <div class="crayon-line" id="crayon-5f5b5fc11cd72532841050-1">&nbsp;</div>
+                  <div class="crayon-line" id="crayon-5f5b5fc11cd72532841050-2"><span
+                      class="crayon-v">$schedule</span><span class="crayon-o">-&gt;</span><span
+                      class="crayon-e">command</span><span class="crayon-sy">(</span><span
+                      class="crayon-s">'inspire'</span><span class="crayon-sy">)</span></div>
+                  <div class="crayon-line" id="crayon-5f5b5fc11cd72532841050-3"><span
+                      class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    </span><span class="crayon-o">-&gt;</span><span class="crayon-e">hourly</span><span
+                      class="crayon-sy">(</span><span class="crayon-sy">)</span></div>
+                  <div class="crayon-line" id="crayon-5f5b5fc11cd72532841050-4"><span
+                      class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    </span><span class="crayon-o">-&gt;</span><span class="crayon-e">timezone</span><span
+                      class="crayon-sy">(</span><span class="crayon-s">'America/Chicago'</span><span
+                      class="crayon-sy">)</span><span class="crayon-sy">;</span></div>
+                  <div class="crayon-line" id="crayon-5f5b5fc11cd72532841050-5">&nbsp;</div>
+                </div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <p>Sin embargo, esto puede volverse engorroso y repetitivo si estás especificando la misma zona horaria para
+      todas sus tareas programadas. Por esa razón, ahora puede definir un método <code
+        class="c-code">scheduleTimezone</code> en su archivo <code class="c-code">app/Console/Kernel.php</code>.
+      Este método debe devolver la zona horaria predeterminada que debe asignarse a todas las tareas programadas:
+    </p>
+    <div id="crayon-5f5b5fc11cd74260868699"
+      class="crayon-syntax crayon-theme-tomorrow-night crayon-font-monospace crayon-os-pc print-yes notranslate crayon-wrapped"
+      data-settings=" minimize scroll-mouseover wrap"
+      style="margin-top: 24px; margin-bottom: 12px; font-size: 16px !important; line-height: 32px !important; height: auto;">
+      <div class="crayon-toolbar" data-settings=" mouseover overlay hide delay"
+        style="font-size: 16px !important; height: 24px !important; line-height: 24px !important; margin-top: -25px; display: none; position: absolute; z-index: 2;">
+        <span class="crayon-title"></span>
+        <div class="crayon-tools"
+          style="font-size: 16px !important;height: 24px !important; line-height: 24px !important;">
+          <div class="crayon-button crayon-plain-button" title="Cambiar a texto plano">
+            <div class="crayon-button-icon"></div>
+          </div>
+          <div class="crayon-button crayon-wrap-button crayon-pressed" title="Toggle Line Wrap">
+            <div class="crayon-button-icon"></div>
+          </div>
+          <div class="crayon-button crayon-expand-button" title="Expand Code" style="display: none;">
+            <div class="crayon-button-icon"></div>
+          </div>
+          <div class="crayon-button crayon-copy-button" title="Copy">
+            <div class="crayon-button-icon"></div>
+          </div>
+          <div class="crayon-button crayon-popup-button" title="Abrir el código en una nueva ventana">
+            <div class="crayon-button-icon"></div>
+          </div><span class="crayon-language">PHP</span>
+        </div>
+      </div>
+      <div class="crayon-info" style="min-height: 22.4px !important; line-height: 22.4px !important;"></div>
+      <div class="crayon-plain-wrap"><textarea class="crayon-plain print-no" data-settings="dblclick" readonly=""
+          style="tab-size: 4; font-size: 16px !important; line-height: 32px !important; z-index: 0; opacity: 0; overflow: hidden;">
+    /**
+    * Get the timezone that should be used by default for scheduled events.
+    *
+    * @return \DateTimeZone|string|null
+    */
+    protected function scheduleTimezone()
+    {
+        return 'America/Chicago';
+    }
+    </textarea></div>
+      <div class="crayon-main" style="position: relative; z-index: 1; overflow: hidden;">
+        <table class="crayon-table" style="">
+          <tbody>
+            <tr class="crayon-row">
+              <td class="crayon-nums " data-settings="show">
+                <div class="crayon-nums-content" style="font-size: 16px !important; line-height: 32px !important;">
+                  <div class="crayon-num" data-line="crayon-5f5b5fc11cd74260868699-1" style="height: 32px;">1</div>
+                  <div class="crayon-num" data-line="crayon-5f5b5fc11cd74260868699-2" style="height: 32px;">2</div>
+                  <div class="crayon-num" data-line="crayon-5f5b5fc11cd74260868699-3" style="height: 32px;">3</div>
+                  <div class="crayon-num" data-line="crayon-5f5b5fc11cd74260868699-4" style="height: 32px;">4</div>
+                  <div class="crayon-num" data-line="crayon-5f5b5fc11cd74260868699-5" style="height: 32px;">5</div>
+                  <div class="crayon-num" data-line="crayon-5f5b5fc11cd74260868699-6" style="height: 32px;">6</div>
+                  <div class="crayon-num" data-line="crayon-5f5b5fc11cd74260868699-7" style="height: 32px;">7</div>
+                  <div class="crayon-num" data-line="crayon-5f5b5fc11cd74260868699-8" style="height: 32px;">8</div>
+                  <div class="crayon-num" data-line="crayon-5f5b5fc11cd74260868699-9" style="height: 32px;">9</div>
+                  <div class="crayon-num" data-line="crayon-5f5b5fc11cd74260868699-10" style="height: 32px;">10</div>
+                  <div class="crayon-num" data-line="crayon-5f5b5fc11cd74260868699-11" style="height: 32px;">11</div>
+                </div>
+              </td>
+              <td class="crayon-code">
+                <div class="crayon-pre"
+                  style="font-size: 16px !important; line-height: 32px !important; -moz-tab-size:4; -o-tab-size:4; -webkit-tab-size:4; tab-size:4;">
+                  <div class="crayon-line" id="crayon-5f5b5fc11cd74260868699-1">&nbsp;</div>
+                  <div class="crayon-line" id="crayon-5f5b5fc11cd74260868699-2"><span class="crayon-c">/**</span></div>
+                  <div class="crayon-line" id="crayon-5f5b5fc11cd74260868699-3"><span class="crayon-c">* Get the
+                      timezone that should be used by default for
+                      scheduled events.</span></div>
+                  <div class="crayon-line" id="crayon-5f5b5fc11cd74260868699-4"><span class="crayon-c">*</span></div>
+                  <div class="crayon-line" id="crayon-5f5b5fc11cd74260868699-5"><span class="crayon-c">* @return
+                      \DateTimeZone|string|null</span></div>
+                  <div class="crayon-line" id="crayon-5f5b5fc11cd74260868699-6"><span class="crayon-c">*/</span></div>
+                  <div class="crayon-line" id="crayon-5f5b5fc11cd74260868699-7"><span
+                      class="crayon-m">protected</span><span class="crayon-h"> </span><span
+                      class="crayon-t">function</span><span class="crayon-h"> </span><span
+                      class="crayon-e">scheduleTimezone</span><span class="crayon-sy">(</span><span
+                      class="crayon-sy">)</span></div>
+                  <div class="crayon-line" id="crayon-5f5b5fc11cd74260868699-8"><span class="crayon-sy">{</span></div>
+                  <div class="crayon-line" id="crayon-5f5b5fc11cd74260868699-9"><span
+                      class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-k ">return</span><span
+                      class="crayon-h"> </span><span class="crayon-s">'America/Chicago'</span><span
+                      class="crayon-sy">;</span>
+                  </div>
+                  <div class="crayon-line" id="crayon-5f5b5fc11cd74260868699-10"><span class="crayon-sy">}</span></div>
+                  <div class="crayon-line" id="crayon-5f5b5fc11cd74260868699-11">&nbsp;</div>
+                </div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <p></p>
+    <h3>Eventos para modelos pivote o tabla intermedia</h3>
+    <p>En versiones anteriores de Laravel, los eventos del modelo Eloquent no se distribuían al adjuntar, separar o
+      sincronizar modelos personalizados de tabla intermedia / pivote de una relación de muchos a muchos. Cuando
+      usas <a
+        href="https://styde.net/laravel-6-doc-eloquent-relaciones/#defining-custom-intermediate-table-models">modelos
+        personalizados para tablas intermedias</a> en Laravel 5.8, estos eventos ahora serán enviados.</p>
+    <h3>Mejoras al método call de Artisan</h3>
+    <p>Laravel te permite invocar comandos de Artisan a través del método <code class="c-code">Artisan::call</code>.
+      En versiones anteriores de Laravel, las opciones del comando se pasan a través de un arreglo como el segundo
+      parámetro del método.</p>
+    <div id="crayon-5f5b5fc11cd76061142110"
+      class="crayon-syntax crayon-theme-tomorrow-night crayon-font-monospace crayon-os-pc print-yes notranslate crayon-wrapped"
+      data-settings=" minimize scroll-mouseover wrap"
+      style="margin-top: 24px; margin-bottom: 12px; font-size: 16px !important; line-height: 32px !important; height: auto;">
+      <div class="crayon-toolbar" data-settings=" mouseover overlay hide delay"
+        style="font-size: 16px !important; height: 24px !important; line-height: 24px !important; margin-top: -25px; display: none; position: absolute; z-index: 2;">
+        <span class="crayon-title"></span>
+        <div class="crayon-tools"
+          style="font-size: 16px !important;height: 24px !important; line-height: 24px !important;">
+          <div class="crayon-button crayon-plain-button" title="Cambiar a texto plano">
+            <div class="crayon-button-icon"></div>
+          </div>
+          <div class="crayon-button crayon-wrap-button crayon-pressed" title="Toggle Line Wrap">
+            <div class="crayon-button-icon"></div>
+          </div>
+          <div class="crayon-button crayon-expand-button" title="Expand Code" style="display: none;">
+            <div class="crayon-button-icon"></div>
+          </div>
+          <div class="crayon-button crayon-copy-button" title="Copy">
+            <div class="crayon-button-icon"></div>
+          </div>
+          <div class="crayon-button crayon-popup-button" title="Abrir el código en una nueva ventana">
+            <div class="crayon-button-icon"></div>
+          </div><span class="crayon-language">PHP</span>
+        </div>
+      </div>
+      <div class="crayon-info" style="min-height: 22.4px !important; line-height: 22.4px !important;"></div>
+      <div class="crayon-plain-wrap"><textarea class="crayon-plain print-no" data-settings="dblclick" readonly=""
+          style="tab-size: 4; font-size: 16px !important; line-height: 32px !important; z-index: 0; opacity: 0; overflow: hidden;">
+    use Illuminate\Support\Facades\Artisan;
+    
+    Artisan::call('migrate:install', ['database' =&gt; 'foo']);
+    </textarea></div>
+      <div class="crayon-main" style="position: relative; z-index: 1; overflow: hidden;">
+        <table class="crayon-table" style="">
+          <tbody>
+            <tr class="crayon-row">
+              <td class="crayon-nums " data-settings="show">
+                <div class="crayon-nums-content" style="font-size: 16px !important; line-height: 32px !important;">
+                  <div class="crayon-num" data-line="crayon-5f5b5fc11cd76061142110-1" style="height: 32px;">1</div>
+                  <div class="crayon-num" data-line="crayon-5f5b5fc11cd76061142110-2" style="height: 32px;">2</div>
+                  <div class="crayon-num" data-line="crayon-5f5b5fc11cd76061142110-3" style="height: 32px;">3</div>
+                  <div class="crayon-num" data-line="crayon-5f5b5fc11cd76061142110-4" style="height: 32px;">4</div>
+                  <div class="crayon-num" data-line="crayon-5f5b5fc11cd76061142110-5" style="height: 32px;">5</div>
+                </div>
+              </td>
+              <td class="crayon-code">
+                <div class="crayon-pre"
+                  style="font-size: 16px !important; line-height: 32px !important; -moz-tab-size:4; -o-tab-size:4; -webkit-tab-size:4; tab-size:4;">
+                  <div class="crayon-line" id="crayon-5f5b5fc11cd76061142110-1">&nbsp;</div>
+                  <div class="crayon-line" id="crayon-5f5b5fc11cd76061142110-2"><span class="crayon-st">use</span><span
+                      class="crayon-h"> </span><span class="crayon-i">Illuminate</span><span
+                      class="crayon-sy">\</span><span class="crayon-i">Support</span><span
+                      class="crayon-sy">\</span><span class="crayon-i">Facades</span><span
+                      class="crayon-sy">\</span><span class="crayon-i">Artisan</span><span class="crayon-sy">;</span>
+                  </div>
+                  <div class="crayon-line" id="crayon-5f5b5fc11cd76061142110-3">&nbsp;</div>
+                  <div class="crayon-line" id="crayon-5f5b5fc11cd76061142110-4"><span
+                      class="crayon-e">Artisan::</span><span class="crayon-e">call</span><span
+                      class="crayon-sy">(</span><span class="crayon-s">'migrate:install'</span><span
+                      class="crayon-sy">,</span><span class="crayon-h"> </span><span class="crayon-sy">[</span><span
+                      class="crayon-s">'database'</span><span class="crayon-h"> </span><span
+                      class="crayon-o">=</span><span class="crayon-o">&gt;</span><span class="crayon-h"> </span><span
+                      class="crayon-s">'foo'</span><span class="crayon-sy">]</span><span class="crayon-sy">)</span><span
+                      class="crayon-sy">;</span></div>
+                  <div class="crayon-line" id="crayon-5f5b5fc11cd76061142110-5">&nbsp;</div>
+                </div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <p>Sin embargo, Laravel 5.8 te permite pasar el comando completo, incluidas las opciones, en el primer parámetro
+      del método con una cadena:</p>
+    <div id="crayon-5f5b5fc11cd78082841643"
+      class="crayon-syntax crayon-theme-tomorrow-night crayon-font-monospace crayon-os-pc print-yes notranslate crayon-wrapped"
+      data-settings=" minimize scroll-mouseover wrap"
+      style="margin-top: 24px; margin-bottom: 12px; font-size: 16px !important; line-height: 32px !important; height: auto;">
+      <div class="crayon-toolbar" data-settings=" mouseover overlay hide delay"
+        style="font-size: 16px !important; height: 24px !important; line-height: 24px !important; margin-top: -25px; display: none; position: absolute; z-index: 2;">
+        <span class="crayon-title"></span>
+        <div class="crayon-tools"
+          style="font-size: 16px !important;height: 24px !important; line-height: 24px !important;">
+          <div class="crayon-button crayon-plain-button" title="Cambiar a texto plano">
+            <div class="crayon-button-icon"></div>
+          </div>
+          <div class="crayon-button crayon-wrap-button crayon-pressed" title="Toggle Line Wrap">
+            <div class="crayon-button-icon"></div>
+          </div>
+          <div class="crayon-button crayon-expand-button" title="Expand Code" style="display: none;">
+            <div class="crayon-button-icon"></div>
+          </div>
+          <div class="crayon-button crayon-copy-button" title="Copy">
+            <div class="crayon-button-icon"></div>
+          </div>
+          <div class="crayon-button crayon-popup-button" title="Abrir el código en una nueva ventana">
+            <div class="crayon-button-icon"></div>
+          </div><span class="crayon-language">PHP</span>
+        </div>
+      </div>
+      <div class="crayon-info" style="min-height: 22.4px !important; line-height: 22.4px !important;"></div>
+      <div class="crayon-plain-wrap"><textarea class="crayon-plain print-no" data-settings="dblclick" readonly=""
+          style="tab-size: 4; font-size: 16px !important; line-height: 32px !important; z-index: 0; opacity: 0; overflow: hidden;">
+    Artisan::call('migrate:install --database=foo');
+    </textarea></div>
+      <div class="crayon-main" style="position: relative; z-index: 1; overflow: hidden;">
+        <table class="crayon-table" style="">
+          <tbody>
+            <tr class="crayon-row">
+              <td class="crayon-nums " data-settings="show">
+                <div class="crayon-nums-content" style="font-size: 16px !important; line-height: 32px !important;">
+                  <div class="crayon-num" data-line="crayon-5f5b5fc11cd78082841643-1" style="height: 32px;">1</div>
+                  <div class="crayon-num" data-line="crayon-5f5b5fc11cd78082841643-2" style="height: 32px;">2</div>
+                  <div class="crayon-num" data-line="crayon-5f5b5fc11cd78082841643-3" style="height: 32px;">3</div>
+                </div>
+              </td>
+              <td class="crayon-code">
+                <div class="crayon-pre"
+                  style="font-size: 16px !important; line-height: 32px !important; -moz-tab-size:4; -o-tab-size:4; -webkit-tab-size:4; tab-size:4;">
+                  <div class="crayon-line" id="crayon-5f5b5fc11cd78082841643-1">&nbsp;</div>
+                  <div class="crayon-line" id="crayon-5f5b5fc11cd78082841643-2"><span
+                      class="crayon-e">Artisan::</span><span class="crayon-e">call</span><span
+                      class="crayon-sy">(</span><span class="crayon-s">'migrate:install
+                      --database=foo'</span><span class="crayon-sy">)</span><span class="crayon-sy">;</span></div>
+                  <div class="crayon-line" id="crayon-5f5b5fc11cd78082841643-3">&nbsp;</div>
+                </div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <p></p>
+    <h3>Métodos de pruebas mock y spy</h3>
+    <p>Con el fin de hacer que los objetos de mocking sean más convenientes, se han agregado los nuevos métodos
+      <code class="c-code">mock</code> y<code class="c-code"> spy</code> a la clase de prueba base de Laravel.
+      Estos métodos vinculan automáticamente la clase simulada en el contenedor. Por ejemplo:</p>
+    <div id="crayon-5f5b5fc11cd7a817871331"
+      class="crayon-syntax crayon-theme-tomorrow-night crayon-font-monospace crayon-os-pc print-yes notranslate crayon-wrapped"
+      data-settings=" minimize scroll-mouseover wrap"
+      style="margin-top: 24px; margin-bottom: 12px; font-size: 16px !important; line-height: 32px !important; height: auto;">
+      <div class="crayon-toolbar" data-settings=" mouseover overlay hide delay"
+        style="font-size: 16px !important; height: 24px !important; line-height: 24px !important; margin-top: -25px; display: none; position: absolute; z-index: 2;">
+        <span class="crayon-title"></span>
+        <div class="crayon-tools"
+          style="font-size: 16px !important;height: 24px !important; line-height: 24px !important;">
+          <div class="crayon-button crayon-plain-button" title="Cambiar a texto plano">
+            <div class="crayon-button-icon"></div>
+          </div>
+          <div class="crayon-button crayon-wrap-button crayon-pressed" title="Toggle Line Wrap">
+            <div class="crayon-button-icon"></div>
+          </div>
+          <div class="crayon-button crayon-expand-button" title="Expand Code" style="display: none;">
+            <div class="crayon-button-icon"></div>
+          </div>
+          <div class="crayon-button crayon-copy-button" title="Copy">
+            <div class="crayon-button-icon"></div>
+          </div>
+          <div class="crayon-button crayon-popup-button" title="Abrir el código en una nueva ventana">
+            <div class="crayon-button-icon"></div>
+          </div><span class="crayon-language">PHP</span>
+        </div>
+      </div>
+      <div class="crayon-info" style="min-height: 22.4px !important; line-height: 22.4px !important;"></div>
+      <div class="crayon-plain-wrap"><textarea class="crayon-plain print-no" data-settings="dblclick" readonly=""
+          style="tab-size: 4; font-size: 16px !important; line-height: 32px !important; z-index: 0; opacity: 0; overflow: hidden;">
+    // Laravel 5.7
+    $this-&gt;instance(Service::class, Mockery::mock(Service::class, function ($mock) {
+        $mock-&gt;shouldReceive('process')-&gt;once();
+    }));
+    
+    // Laravel 5.8
+    $this-&gt;mock(Service::class, function ($mock) {
+        $mock-&gt;shouldReceive('process')-&gt;once();
+    });
+    </textarea></div>
+      <div class="crayon-main" style="position: relative; z-index: 1; overflow: hidden;">
+        <table class="crayon-table" style="">
+          <tbody>
+            <tr class="crayon-row">
+              <td class="crayon-nums " data-settings="show">
+                <div class="crayon-nums-content" style="font-size: 16px !important; line-height: 32px !important;">
+                  <div class="crayon-num" data-line="crayon-5f5b5fc11cd7a817871331-1" style="height: 32px;">1</div>
+                  <div class="crayon-num" data-line="crayon-5f5b5fc11cd7a817871331-2" style="height: 32px;">2</div>
+                  <div class="crayon-num" data-line="crayon-5f5b5fc11cd7a817871331-3" style="height: 32px;">3</div>
+                  <div class="crayon-num" data-line="crayon-5f5b5fc11cd7a817871331-4" style="height: 32px;">4</div>
+                  <div class="crayon-num" data-line="crayon-5f5b5fc11cd7a817871331-5" style="height: 32px;">5</div>
+                  <div class="crayon-num" data-line="crayon-5f5b5fc11cd7a817871331-6" style="height: 32px;">6</div>
+                  <div class="crayon-num" data-line="crayon-5f5b5fc11cd7a817871331-7" style="height: 32px;">7</div>
+                  <div class="crayon-num" data-line="crayon-5f5b5fc11cd7a817871331-8" style="height: 32px;">8</div>
+                  <div class="crayon-num" data-line="crayon-5f5b5fc11cd7a817871331-9" style="height: 32px;">9</div>
+                  <div class="crayon-num" data-line="crayon-5f5b5fc11cd7a817871331-10" style="height: 32px;">10</div>
+                  <div class="crayon-num" data-line="crayon-5f5b5fc11cd7a817871331-11" style="height: 32px;">11</div>
+                </div>
+              </td>
+              <td class="crayon-code">
+                <div class="crayon-pre"
+                  style="font-size: 16px !important; line-height: 32px !important; -moz-tab-size:4; -o-tab-size:4; -webkit-tab-size:4; tab-size:4;">
+                  <div class="crayon-line" id="crayon-5f5b5fc11cd7a817871331-1">&nbsp;</div>
+                  <div class="crayon-line" id="crayon-5f5b5fc11cd7a817871331-2"><span class="crayon-c">// Laravel
+                      5.7</span></div>
+                  <div class="crayon-line" id="crayon-5f5b5fc11cd7a817871331-3"><span class="crayon-v">$this</span><span
+                      class="crayon-o">-&gt;</span><span class="crayon-e">instance</span><span
+                      class="crayon-sy">(</span><span class="crayon-e">Service::</span><span
+                      class="crayon-t">class</span><span class="crayon-sy">,</span><span class="crayon-h"> </span><span
+                      class="crayon-e">Mockery::</span><span class="crayon-e">mock</span><span
+                      class="crayon-sy">(</span><span class="crayon-e">Service::</span><span
+                      class="crayon-t">class</span><span class="crayon-sy">,</span><span class="crayon-h"> </span><span
+                      class="crayon-t">function</span><span class="crayon-h"> </span><span
+                      class="crayon-sy">(</span><span class="crayon-v">$mock</span><span class="crayon-sy">)</span><span
+                      class="crayon-h"> </span><span class="crayon-sy">{</span></div>
+                  <div class="crayon-line" id="crayon-5f5b5fc11cd7a817871331-4"><span
+                      class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-v">$mock</span><span
+                      class="crayon-o">-&gt;</span><span class="crayon-e">shouldReceive</span><span
+                      class="crayon-sy">(</span><span class="crayon-s">'process'</span><span
+                      class="crayon-sy">)</span><span class="crayon-o">-&gt;</span><span
+                      class="crayon-e">once</span><span class="crayon-sy">(</span><span class="crayon-sy">)</span><span
+                      class="crayon-sy">;</span></div>
+                  <div class="crayon-line" id="crayon-5f5b5fc11cd7a817871331-5"><span class="crayon-sy">}</span><span
+                      class="crayon-sy">)</span><span class="crayon-sy">)</span><span class="crayon-sy">;</span></div>
+                  <div class="crayon-line" id="crayon-5f5b5fc11cd7a817871331-6">&nbsp;</div>
+                  <div class="crayon-line" id="crayon-5f5b5fc11cd7a817871331-7"><span class="crayon-c">// Laravel
+                      5.8</span></div>
+                  <div class="crayon-line" id="crayon-5f5b5fc11cd7a817871331-8"><span class="crayon-v">$this</span><span
+                      class="crayon-o">-&gt;</span><span class="crayon-e">mock</span><span
+                      class="crayon-sy">(</span><span class="crayon-e">Service::</span><span
+                      class="crayon-t">class</span><span class="crayon-sy">,</span><span class="crayon-h"> </span><span
+                      class="crayon-t">function</span><span class="crayon-h"> </span><span
+                      class="crayon-sy">(</span><span class="crayon-v">$mock</span><span class="crayon-sy">)</span><span
+                      class="crayon-h"> </span><span class="crayon-sy">{</span></div>
+                  <div class="crayon-line" id="crayon-5f5b5fc11cd7a817871331-9"><span
+                      class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-v">$mock</span><span
+                      class="crayon-o">-&gt;</span><span class="crayon-e">shouldReceive</span><span
+                      class="crayon-sy">(</span><span class="crayon-s">'process'</span><span
+                      class="crayon-sy">)</span><span class="crayon-o">-&gt;</span><span
+                      class="crayon-e">once</span><span class="crayon-sy">(</span><span class="crayon-sy">)</span><span
+                      class="crayon-sy">;</span></div>
+                  <div class="crayon-line" id="crayon-5f5b5fc11cd7a817871331-10"><span class="crayon-sy">}</span><span
+                      class="crayon-sy">)</span><span class="crayon-sy">;</span></div>
+                  <div class="crayon-line" id="crayon-5f5b5fc11cd7a817871331-11">&nbsp;</div>
+                </div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <p></p>
+    <h3>Preservación de llaves para recursos Eloquent</h3>
+    <p>Al devolver una <a href="https://styde.net/laravel-6-doc-eloquent-recursos-api/">colección de recursos
+        Eloquent</a> desde una ruta, Laravel restablece las llaves de la colección para que estén en orden
+      numérico simple:</p>
+    <div id="crayon-5f5b5fc11cd7c839098933"
+      class="crayon-syntax crayon-theme-tomorrow-night crayon-font-monospace crayon-os-pc print-yes notranslate crayon-wrapped"
+      data-settings=" minimize scroll-mouseover wrap"
+      style="margin-top: 24px; margin-bottom: 12px; font-size: 16px !important; line-height: 32px !important; height: auto;">
+      <div class="crayon-toolbar" data-settings=" mouseover overlay hide delay"
+        style="font-size: 16px !important; height: 24px !important; line-height: 24px !important; margin-top: -25px; display: none; position: absolute; z-index: 2;">
+        <span class="crayon-title"></span>
+        <div class="crayon-tools"
+          style="font-size: 16px !important;height: 24px !important; line-height: 24px !important;">
+          <div class="crayon-button crayon-plain-button" title="Cambiar a texto plano">
+            <div class="crayon-button-icon"></div>
+          </div>
+          <div class="crayon-button crayon-wrap-button crayon-pressed" title="Toggle Line Wrap">
+            <div class="crayon-button-icon"></div>
+          </div>
+          <div class="crayon-button crayon-expand-button" title="Expand Code" style="display: none;">
+            <div class="crayon-button-icon"></div>
+          </div>
+          <div class="crayon-button crayon-copy-button" title="Copy">
+            <div class="crayon-button-icon"></div>
+          </div>
+          <div class="crayon-button crayon-popup-button" title="Abrir el código en una nueva ventana">
+            <div class="crayon-button-icon"></div>
+          </div><span class="crayon-language">PHP</span>
+        </div>
+      </div>
+      <div class="crayon-info" style="min-height: 22.4px !important; line-height: 22.4px !important;"></div>
+      <div class="crayon-plain-wrap"><textarea class="crayon-plain print-no" data-settings="dblclick" readonly=""
+          style="tab-size: 4; font-size: 16px !important; line-height: 32px !important; z-index: 0; opacity: 0; overflow: hidden;">
+    use App\User;
+    use App\Http\Resources\User as UserResource;
+    
+    Route::get('/user', function () {
+        return UserResource::collection(User::all());
+    });
+    </textarea></div>
+      <div class="crayon-main" style="position: relative; z-index: 1; overflow: hidden;">
+        <table class="crayon-table" style="">
+          <tbody>
+            <tr class="crayon-row">
+              <td class="crayon-nums " data-settings="show">
+                <div class="crayon-nums-content" style="font-size: 16px !important; line-height: 32px !important;">
+                  <div class="crayon-num" data-line="crayon-5f5b5fc11cd7c839098933-1" style="height: 32px;">1</div>
+                  <div class="crayon-num" data-line="crayon-5f5b5fc11cd7c839098933-2" style="height: 32px;">2</div>
+                  <div class="crayon-num" data-line="crayon-5f5b5fc11cd7c839098933-3" style="height: 32px;">3</div>
+                  <div class="crayon-num" data-line="crayon-5f5b5fc11cd7c839098933-4" style="height: 32px;">4</div>
+                  <div class="crayon-num" data-line="crayon-5f5b5fc11cd7c839098933-5" style="height: 32px;">5</div>
+                  <div class="crayon-num" data-line="crayon-5f5b5fc11cd7c839098933-6" style="height: 32px;">6</div>
+                  <div class="crayon-num" data-line="crayon-5f5b5fc11cd7c839098933-7" style="height: 32px;">7</div>
+                  <div class="crayon-num" data-line="crayon-5f5b5fc11cd7c839098933-8" style="height: 32px;">8</div>
+                </div>
+              </td>
+              <td class="crayon-code">
+                <div class="crayon-pre"
+                  style="font-size: 16px !important; line-height: 32px !important; -moz-tab-size:4; -o-tab-size:4; -webkit-tab-size:4; tab-size:4;">
+                  <div class="crayon-line" id="crayon-5f5b5fc11cd7c839098933-1">&nbsp;</div>
+                  <div class="crayon-line" id="crayon-5f5b5fc11cd7c839098933-2"><span class="crayon-st">use</span><span
+                      class="crayon-h"> </span><span class="crayon-i">App</span><span class="crayon-sy">\</span><span
+                      class="crayon-i">User</span><span class="crayon-sy">;</span></div>
+                  <div class="crayon-line" id="crayon-5f5b5fc11cd7c839098933-3"><span class="crayon-st">use</span><span
+                      class="crayon-h"> </span><span class="crayon-i">App</span><span class="crayon-sy">\</span><span
+                      class="crayon-i">Http</span><span class="crayon-sy">\</span><span
+                      class="crayon-i">Resources</span><span class="crayon-sy">\</span><span class="crayon-e">User
+                    </span><span class="crayon-st">as</span><span class="crayon-h"> </span><span
+                      class="crayon-i">UserResource</span><span class="crayon-sy">;</span></div>
+                  <div class="crayon-line" id="crayon-5f5b5fc11cd7c839098933-4">&nbsp;</div>
+                  <div class="crayon-line" id="crayon-5f5b5fc11cd7c839098933-5"><span
+                      class="crayon-e">Route::</span><span class="crayon-e">get</span><span
+                      class="crayon-sy">(</span><span class="crayon-s">'/user'</span><span
+                      class="crayon-sy">,</span><span class="crayon-h"> </span><span
+                      class="crayon-t">function</span><span class="crayon-h"> </span><span
+                      class="crayon-sy">(</span><span class="crayon-sy">)</span><span class="crayon-h"> </span><span
+                      class="crayon-sy">{</span></div>
+                  <div class="crayon-line" id="crayon-5f5b5fc11cd7c839098933-6"><span
+                      class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-k ">return</span><span
+                      class="crayon-h"> </span><span class="crayon-e">UserResource::</span><span
+                      class="crayon-e">collection</span><span class="crayon-sy">(</span><span
+                      class="crayon-e">User::</span><span class="crayon-e">all</span><span
+                      class="crayon-sy">(</span><span class="crayon-sy">)</span><span class="crayon-sy">)</span><span
+                      class="crayon-sy">;</span></div>
+                  <div class="crayon-line" id="crayon-5f5b5fc11cd7c839098933-7"><span class="crayon-sy">}</span><span
+                      class="crayon-sy">)</span><span class="crayon-sy">;</span></div>
+                  <div class="crayon-line" id="crayon-5f5b5fc11cd7c839098933-8">&nbsp;</div>
+                </div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <p>Al usar Laravel 5.8, puedes agregar una propiedad <code class="c-code">preserveKeys</code> a tu clase de
+      recurso que indica si se deben conservar las llaves de la colección. De forma predeterminada, y para
+      mantener la coherencia con las versiones anteriores de Laravel, las llaves se restablecerán de forma
+      predeterminada:</p>
+    <div id="crayon-5f5b5fc11cd7e805467195"
+      class="crayon-syntax crayon-theme-tomorrow-night crayon-font-monospace crayon-os-pc print-yes notranslate crayon-wrapped"
+      data-settings=" minimize scroll-mouseover wrap"
+      style="margin-top: 24px; margin-bottom: 12px; font-size: 16px !important; line-height: 32px !important; height: auto;">
+      <div class="crayon-toolbar" data-settings=" mouseover overlay hide delay"
+        style="font-size: 16px !important; height: 24px !important; line-height: 24px !important; margin-top: -25px; display: none; position: absolute; z-index: 2;">
+        <span class="crayon-title"></span>
+        <div class="crayon-tools"
+          style="font-size: 16px !important;height: 24px !important; line-height: 24px !important;">
+          <div class="crayon-button crayon-plain-button" title="Cambiar a texto plano">
+            <div class="crayon-button-icon"></div>
+          </div>
+          <div class="crayon-button crayon-wrap-button crayon-pressed" title="Toggle Line Wrap">
+            <div class="crayon-button-icon"></div>
+          </div>
+          <div class="crayon-button crayon-expand-button" title="Expand Code" style="display: none;">
+            <div class="crayon-button-icon"></div>
+          </div>
+          <div class="crayon-button crayon-copy-button" title="Copy">
+            <div class="crayon-button-icon"></div>
+          </div>
+          <div class="crayon-button crayon-popup-button" title="Abrir el código en una nueva ventana">
+            <div class="crayon-button-icon"></div>
+          </div><span class="crayon-language">PHP</span>
+        </div>
+      </div>
+      <div class="crayon-info" style="min-height: 22.4px !important; line-height: 22.4px !important;"></div>
+      <div class="crayon-plain-wrap"><textarea class="crayon-plain print-no" data-settings="dblclick" readonly=""
+          style="tab-size: 4; font-size: 16px !important; line-height: 32px !important; z-index: 0; opacity: 0; overflow: hidden;">
+    &lt;?php
+    
+    namespace App\Http\Resources;
+    
+    use Illuminate\Http\Resources\Json\JsonResource;
+    
+    class User extends JsonResource
+    {
+        /**
+        * Indicates if the resource's collection keys should be preserved.
+        *
+        * @var bool
+        */
+        public $preserveKeys = true;
+    }
+    </textarea></div>
+      <div class="crayon-main" style="position: relative; z-index: 1; overflow: hidden;">
+        <table class="crayon-table" style="">
+          <tbody>
+            <tr class="crayon-row">
+              <td class="crayon-nums " data-settings="show">
+                <div class="crayon-nums-content" style="font-size: 16px !important; line-height: 32px !important;">
+                  <div class="crayon-num" data-line="crayon-5f5b5fc11cd7e805467195-1" style="height: 32px;">1</div>
+                  <div class="crayon-num" data-line="crayon-5f5b5fc11cd7e805467195-2" style="height: 32px;">2</div>
+                  <div class="crayon-num" data-line="crayon-5f5b5fc11cd7e805467195-3" style="height: 32px;">3</div>
+                  <div class="crayon-num" data-line="crayon-5f5b5fc11cd7e805467195-4" style="height: 32px;">4</div>
+                  <div class="crayon-num" data-line="crayon-5f5b5fc11cd7e805467195-5" style="height: 32px;">5</div>
+                  <div class="crayon-num" data-line="crayon-5f5b5fc11cd7e805467195-6" style="height: 32px;">6</div>
+                  <div class="crayon-num" data-line="crayon-5f5b5fc11cd7e805467195-7" style="height: 32px;">7</div>
+                  <div class="crayon-num" data-line="crayon-5f5b5fc11cd7e805467195-8" style="height: 32px;">8</div>
+                  <div class="crayon-num" data-line="crayon-5f5b5fc11cd7e805467195-9" style="height: 32px;">9</div>
+                  <div class="crayon-num" data-line="crayon-5f5b5fc11cd7e805467195-10" style="height: 32px;">10</div>
+                  <div class="crayon-num" data-line="crayon-5f5b5fc11cd7e805467195-11" style="height: 32px;">11</div>
+                  <div class="crayon-num" data-line="crayon-5f5b5fc11cd7e805467195-12" style="height: 32px;">12</div>
+                  <div class="crayon-num" data-line="crayon-5f5b5fc11cd7e805467195-13" style="height: 32px;">13</div>
+                  <div class="crayon-num" data-line="crayon-5f5b5fc11cd7e805467195-14" style="height: 32px;">14</div>
+                  <div class="crayon-num" data-line="crayon-5f5b5fc11cd7e805467195-15" style="height: 32px;">15</div>
+                  <div class="crayon-num" data-line="crayon-5f5b5fc11cd7e805467195-16" style="height: 32px;">16</div>
+                  <div class="crayon-num" data-line="crayon-5f5b5fc11cd7e805467195-17" style="height: 32px;">17</div>
+                </div>
+              </td>
+              <td class="crayon-code">
+                <div class="crayon-pre"
+                  style="font-size: 16px !important; line-height: 32px !important; -moz-tab-size:4; -o-tab-size:4; -webkit-tab-size:4; tab-size:4;">
+                  <div class="crayon-line" id="crayon-5f5b5fc11cd7e805467195-1">&nbsp;</div>
+                  <div class="crayon-line" id="crayon-5f5b5fc11cd7e805467195-2"><span class="crayon-ta">&lt;?php</span>
+                  </div>
+                  <div class="crayon-line" id="crayon-5f5b5fc11cd7e805467195-3">&nbsp;</div>
+                  <div class="crayon-line" id="crayon-5f5b5fc11cd7e805467195-4"><span
+                      class="crayon-t">namespace</span><span class="crayon-h"> </span><span
+                      class="crayon-i">App</span><span class="crayon-sy">\</span><span class="crayon-i">Http</span><span
+                      class="crayon-sy">\</span><span class="crayon-i">Resources</span><span class="crayon-sy">;</span>
+                  </div>
+                  <div class="crayon-line" id="crayon-5f5b5fc11cd7e805467195-5">&nbsp;</div>
+                  <div class="crayon-line" id="crayon-5f5b5fc11cd7e805467195-6"><span class="crayon-st">use</span><span
+                      class="crayon-h"> </span><span class="crayon-i">Illuminate</span><span
+                      class="crayon-sy">\</span><span class="crayon-i">Http</span><span class="crayon-sy">\</span><span
+                      class="crayon-i">Resources</span><span class="crayon-sy">\</span><span
+                      class="crayon-i">Json</span><span class="crayon-sy">\</span><span
+                      class="crayon-i">JsonResource</span><span class="crayon-sy">;</span></div>
+                  <div class="crayon-line" id="crayon-5f5b5fc11cd7e805467195-7">&nbsp;</div>
+                  <div class="crayon-line" id="crayon-5f5b5fc11cd7e805467195-8"><span class="crayon-t">class</span><span
+                      class="crayon-h"> </span><span class="crayon-e">User</span><span class="crayon-h"> </span><span
+                      class="crayon-r">extends</span><span class="crayon-h"> </span><span
+                      class="crayon-e">JsonResource</span></div>
+                  <div class="crayon-line" id="crayon-5f5b5fc11cd7e805467195-9"><span class="crayon-sy">{</span></div>
+                  <div class="crayon-line" id="crayon-5f5b5fc11cd7e805467195-10"><span
+                      class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-c">/**</span></div>
+                  <div class="crayon-line" id="crayon-5f5b5fc11cd7e805467195-11"><span
+                      class="crayon-c">&nbsp;&nbsp;&nbsp;&nbsp;* Indicates if the resource's
+                      collection keys should be preserved.</span></div>
+                  <div class="crayon-line" id="crayon-5f5b5fc11cd7e805467195-12"><span
+                      class="crayon-c">&nbsp;&nbsp;&nbsp;&nbsp;*</span></div>
+                  <div class="crayon-line" id="crayon-5f5b5fc11cd7e805467195-13"><span
+                      class="crayon-c">&nbsp;&nbsp;&nbsp;&nbsp;* @var bool</span></div>
+                  <div class="crayon-line" id="crayon-5f5b5fc11cd7e805467195-14"><span
+                      class="crayon-c">&nbsp;&nbsp;&nbsp;&nbsp;*/</span></div>
+                  <div class="crayon-line" id="crayon-5f5b5fc11cd7e805467195-15"><span
+                      class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-m">public</span><span
+                      class="crayon-h"> </span><span class="crayon-v">$preserveKeys</span><span class="crayon-h">
+                    </span><span class="crayon-o">=</span><span class="crayon-h"> </span><span
+                      class="crayon-t">true</span><span class="crayon-sy">;</span></div>
+                  <div class="crayon-line" id="crayon-5f5b5fc11cd7e805467195-16"><span class="crayon-sy">}</span></div>
+                  <div class="crayon-line" id="crayon-5f5b5fc11cd7e805467195-17">&nbsp;</div>
+                </div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <p>Cuando la propiedad <code class="c-code">preserveKeys</code> se establece en <code class="c-code">true</code>,
+      las llaves de la colección se conservarán:</p>
+    <div id="crayon-5f5b5fc11cd80603494796"
+      class="crayon-syntax crayon-theme-tomorrow-night crayon-font-monospace crayon-os-pc print-yes notranslate crayon-wrapped"
+      data-settings=" minimize scroll-mouseover wrap"
+      style="margin-top: 24px; margin-bottom: 12px; font-size: 16px !important; line-height: 32px !important; height: auto;">
+      <div class="crayon-toolbar" data-settings=" mouseover overlay hide delay"
+        style="font-size: 16px !important; height: 24px !important; line-height: 24px !important; margin-top: -25px; display: none; position: absolute; z-index: 2;">
+        <span class="crayon-title"></span>
+        <div class="crayon-tools"
+          style="font-size: 16px !important;height: 24px !important; line-height: 24px !important;">
+          <div class="crayon-button crayon-plain-button" title="Cambiar a texto plano">
+            <div class="crayon-button-icon"></div>
+          </div>
+          <div class="crayon-button crayon-wrap-button crayon-pressed" title="Toggle Line Wrap">
+            <div class="crayon-button-icon"></div>
+          </div>
+          <div class="crayon-button crayon-expand-button" title="Expand Code" style="display: none;">
+            <div class="crayon-button-icon"></div>
+          </div>
+          <div class="crayon-button crayon-copy-button" title="Copy">
+            <div class="crayon-button-icon"></div>
+          </div>
+          <div class="crayon-button crayon-popup-button" title="Abrir el código en una nueva ventana">
+            <div class="crayon-button-icon"></div>
+          </div><span class="crayon-language">PHP</span>
+        </div>
+      </div>
+      <div class="crayon-info" style="min-height: 22.4px !important; line-height: 22.4px !important;"></div>
+      <div class="crayon-plain-wrap"><textarea class="crayon-plain print-no" data-settings="dblclick" readonly=""
+          style="tab-size: 4; font-size: 16px !important; line-height: 32px !important; z-index: 0; opacity: 0; overflow: hidden;">
+    use App\User;
+    use App\Http\Resources\User as UserResource;
+    
+    Route::get('/user', function () {
+        return UserResource::collection(User::all()-&gt;keyBy-&gt;id);
+    });
+    </textarea></div>
+      <div class="crayon-main" style="position: relative; z-index: 1; overflow: hidden;">
+        <table class="crayon-table" style="">
+          <tbody>
+            <tr class="crayon-row">
+              <td class="crayon-nums " data-settings="show">
+                <div class="crayon-nums-content" style="font-size: 16px !important; line-height: 32px !important;">
+                  <div class="crayon-num" data-line="crayon-5f5b5fc11cd80603494796-1" style="height: 32px;">1</div>
+                  <div class="crayon-num" data-line="crayon-5f5b5fc11cd80603494796-2" style="height: 32px;">2</div>
+                  <div class="crayon-num" data-line="crayon-5f5b5fc11cd80603494796-3" style="height: 32px;">3</div>
+                  <div class="crayon-num" data-line="crayon-5f5b5fc11cd80603494796-4" style="height: 32px;">4</div>
+                  <div class="crayon-num" data-line="crayon-5f5b5fc11cd80603494796-5" style="height: 32px;">5</div>
+                  <div class="crayon-num" data-line="crayon-5f5b5fc11cd80603494796-6" style="height: 32px;">6</div>
+                  <div class="crayon-num" data-line="crayon-5f5b5fc11cd80603494796-7" style="height: 32px;">7</div>
+                  <div class="crayon-num" data-line="crayon-5f5b5fc11cd80603494796-8" style="height: 32px;">8</div>
+                </div>
+              </td>
+              <td class="crayon-code">
+                <div class="crayon-pre"
+                  style="font-size: 16px !important; line-height: 32px !important; -moz-tab-size:4; -o-tab-size:4; -webkit-tab-size:4; tab-size:4;">
+                  <div class="crayon-line" id="crayon-5f5b5fc11cd80603494796-1">&nbsp;</div>
+                  <div class="crayon-line" id="crayon-5f5b5fc11cd80603494796-2"><span class="crayon-st">use</span><span
+                      class="crayon-h"> </span><span class="crayon-i">App</span><span class="crayon-sy">\</span><span
+                      class="crayon-i">User</span><span class="crayon-sy">;</span></div>
+                  <div class="crayon-line" id="crayon-5f5b5fc11cd80603494796-3"><span class="crayon-st">use</span><span
+                      class="crayon-h"> </span><span class="crayon-i">App</span><span class="crayon-sy">\</span><span
+                      class="crayon-i">Http</span><span class="crayon-sy">\</span><span
+                      class="crayon-i">Resources</span><span class="crayon-sy">\</span><span class="crayon-e">User
+                    </span><span class="crayon-st">as</span><span class="crayon-h"> </span><span
+                      class="crayon-i">UserResource</span><span class="crayon-sy">;</span></div>
+                  <div class="crayon-line" id="crayon-5f5b5fc11cd80603494796-4">&nbsp;</div>
+                  <div class="crayon-line" id="crayon-5f5b5fc11cd80603494796-5"><span
+                      class="crayon-e">Route::</span><span class="crayon-e">get</span><span
+                      class="crayon-sy">(</span><span class="crayon-s">'/user'</span><span
+                      class="crayon-sy">,</span><span class="crayon-h"> </span><span
+                      class="crayon-t">function</span><span class="crayon-h"> </span><span
+                      class="crayon-sy">(</span><span class="crayon-sy">)</span><span class="crayon-h"> </span><span
+                      class="crayon-sy">{</span></div>
+                  <div class="crayon-line" id="crayon-5f5b5fc11cd80603494796-6"><span
+                      class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-k ">return</span><span
+                      class="crayon-h"> </span><span class="crayon-e">UserResource::</span><span
+                      class="crayon-e">collection</span><span class="crayon-sy">(</span><span
+                      class="crayon-e">User::</span><span class="crayon-e">all</span><span
+                      class="crayon-sy">(</span><span class="crayon-sy">)</span><span class="crayon-o">-&gt;</span><span
+                      class="crayon-i">keyBy</span><span class="crayon-o">-&gt;</span><span
+                      class="crayon-i">id</span><span class="crayon-sy">)</span><span class="crayon-sy">;</span></div>
+                  <div class="crayon-line" id="crayon-5f5b5fc11cd80603494796-7"><span class="crayon-sy">}</span><span
+                      class="crayon-sy">)</span><span class="crayon-sy">;</span></div>
+                  <div class="crayon-line" id="crayon-5f5b5fc11cd80603494796-8">&nbsp;</div>
+                </div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <p></p>
+    <h3>Método de orden superior <code class="c-code">orWhere</code> para Eloquent</h3>
+    <p>En versiones anteriores de Laravel, la combinación de múltiples scopes de modelo Eloquent a través de un
+      operador de consulta <code class="c-code">or</code> requería el uso de Closure callbacks:</p>
+    <div id="crayon-5f5b5fc11cd82649709847"
+      class="crayon-syntax crayon-theme-tomorrow-night crayon-font-monospace crayon-os-pc print-yes notranslate crayon-wrapped"
+      data-settings=" minimize scroll-mouseover wrap"
+      style="margin-top: 24px; margin-bottom: 12px; font-size: 16px !important; line-height: 32px !important; height: auto;">
+      <div class="crayon-toolbar" data-settings=" mouseover overlay hide delay"
+        style="font-size: 16px !important; height: 24px !important; line-height: 24px !important; margin-top: -25px; display: none; position: absolute; z-index: 2;">
+        <span class="crayon-title"></span>
+        <div class="crayon-tools"
+          style="font-size: 16px !important;height: 24px !important; line-height: 24px !important;">
+          <div class="crayon-button crayon-plain-button" title="Cambiar a texto plano">
+            <div class="crayon-button-icon"></div>
+          </div>
+          <div class="crayon-button crayon-wrap-button crayon-pressed" title="Toggle Line Wrap">
+            <div class="crayon-button-icon"></div>
+          </div>
+          <div class="crayon-button crayon-expand-button" title="Expand Code" style="display: none;">
+            <div class="crayon-button-icon"></div>
+          </div>
+          <div class="crayon-button crayon-copy-button" title="Copy">
+            <div class="crayon-button-icon"></div>
+          </div>
+          <div class="crayon-button crayon-popup-button" title="Abrir el código en una nueva ventana">
+            <div class="crayon-button-icon"></div>
+          </div><span class="crayon-language">PHP</span>
+        </div>
+      </div>
+      <div class="crayon-info" style="min-height: 22.4px !important; line-height: 22.4px !important;"></div>
+      <div class="crayon-plain-wrap"><textarea class="crayon-plain print-no" data-settings="dblclick" readonly=""
+          style="tab-size: 4; font-size: 16px !important; line-height: 32px !important; z-index: 0; opacity: 0; overflow: hidden;">
+    // scopePopular and scopeActive methods defined on the User model...
+    $users = App\User::popular()-&gt;orWhere(function (Builder $query) {
+        $query-&gt;active();
+    })-&gt;get();
+    </textarea></div>
+      <div class="crayon-main" style="position: relative; z-index: 1; overflow: hidden;">
+        <table class="crayon-table" style="">
+          <tbody>
+            <tr class="crayon-row">
+              <td class="crayon-nums " data-settings="show">
+                <div class="crayon-nums-content" style="font-size: 16px !important; line-height: 32px !important;">
+                  <div class="crayon-num" data-line="crayon-5f5b5fc11cd82649709847-1" style="height: 32px;">1</div>
+                  <div class="crayon-num" data-line="crayon-5f5b5fc11cd82649709847-2" style="height: 32px;">2</div>
+                  <div class="crayon-num" data-line="crayon-5f5b5fc11cd82649709847-3" style="height: 32px;">3</div>
+                  <div class="crayon-num" data-line="crayon-5f5b5fc11cd82649709847-4" style="height: 32px;">4</div>
+                  <div class="crayon-num" data-line="crayon-5f5b5fc11cd82649709847-5" style="height: 32px;">5</div>
+                  <div class="crayon-num" data-line="crayon-5f5b5fc11cd82649709847-6" style="height: 32px;">6</div>
+                </div>
+              </td>
+              <td class="crayon-code">
+                <div class="crayon-pre"
+                  style="font-size: 16px !important; line-height: 32px !important; -moz-tab-size:4; -o-tab-size:4; -webkit-tab-size:4; tab-size:4;">
+                  <div class="crayon-line" id="crayon-5f5b5fc11cd82649709847-1">&nbsp;</div>
+                  <div class="crayon-line" id="crayon-5f5b5fc11cd82649709847-2"><span class="crayon-c">// scopePopular
+                      and scopeActive methods defined on the User
+                      model...</span></div>
+                  <div class="crayon-line" id="crayon-5f5b5fc11cd82649709847-3"><span
+                      class="crayon-v">$users</span><span class="crayon-h"> </span><span class="crayon-o">=</span><span
+                      class="crayon-h"> </span><span class="crayon-i">App</span><span class="crayon-sy">\</span><span
+                      class="crayon-e">User::</span><span class="crayon-e">popular</span><span
+                      class="crayon-sy">(</span><span class="crayon-sy">)</span><span class="crayon-o">-&gt;</span><span
+                      class="crayon-e">orWhere</span><span class="crayon-sy">(</span><span
+                      class="crayon-t">function</span><span class="crayon-h"> </span><span
+                      class="crayon-sy">(</span><span class="crayon-i">Builder</span><span class="crayon-h">
+                    </span><span class="crayon-v">$query</span><span class="crayon-sy">)</span><span class="crayon-h">
+                    </span><span class="crayon-sy">{</span></div>
+                  <div class="crayon-line" id="crayon-5f5b5fc11cd82649709847-4"><span
+                      class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-v">$query</span><span
+                      class="crayon-o">-&gt;</span><span class="crayon-e">active</span><span
+                      class="crayon-sy">(</span><span class="crayon-sy">)</span><span class="crayon-sy">;</span></div>
+                  <div class="crayon-line" id="crayon-5f5b5fc11cd82649709847-5"><span class="crayon-sy">}</span><span
+                      class="crayon-sy">)</span><span class="crayon-o">-&gt;</span><span
+                      class="crayon-e">get</span><span class="crayon-sy">(</span><span class="crayon-sy">)</span><span
+                      class="crayon-sy">;</span></div>
+                  <div class="crayon-line" id="crayon-5f5b5fc11cd82649709847-6">&nbsp;</div>
+                </div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <p>Laravel 5.8 introduce un método de «orden superior» <code class="c-code">orWhere</code> que te permite
+      encadenar estos scopes con fluidez sin el uso de Clousures:</p>
+    <div id="crayon-5f5b5fc11cd84901795364"
+      class="crayon-syntax crayon-theme-tomorrow-night crayon-font-monospace crayon-os-pc print-yes notranslate crayon-wrapped"
+      data-settings=" minimize scroll-mouseover wrap"
+      style="margin-top: 24px; margin-bottom: 12px; font-size: 16px !important; line-height: 32px !important; height: auto;">
+      <div class="crayon-toolbar" data-settings=" mouseover overlay hide delay"
+        style="font-size: 16px !important; height: 24px !important; line-height: 24px !important; margin-top: -25px; display: none; position: absolute; z-index: 2;">
+        <span class="crayon-title"></span>
+        <div class="crayon-tools"
+          style="font-size: 16px !important;height: 24px !important; line-height: 24px !important;">
+          <div class="crayon-button crayon-plain-button" title="Cambiar a texto plano">
+            <div class="crayon-button-icon"></div>
+          </div>
+          <div class="crayon-button crayon-wrap-button crayon-pressed" title="Toggle Line Wrap">
+            <div class="crayon-button-icon"></div>
+          </div>
+          <div class="crayon-button crayon-expand-button" title="Expand Code" style="display: none;">
+            <div class="crayon-button-icon"></div>
+          </div>
+          <div class="crayon-button crayon-copy-button" title="Copy">
+            <div class="crayon-button-icon"></div>
+          </div>
+          <div class="crayon-button crayon-popup-button" title="Abrir el código en una nueva ventana">
+            <div class="crayon-button-icon"></div>
+          </div><span class="crayon-language">PHP</span>
+        </div>
+      </div>
+      <div class="crayon-info" style="min-height: 22.4px !important; line-height: 22.4px !important;"></div>
+      <div class="crayon-plain-wrap"><textarea class="crayon-plain print-no" data-settings="dblclick" readonly=""
+          style="tab-size: 4; font-size: 16px !important; line-height: 32px !important; z-index: 0; opacity: 0; overflow: hidden;">
+    $users = App\User::popular()-&gt;orWhere-&gt;active()-&gt;get();
+    </textarea></div>
+      <div class="crayon-main" style="position: relative; z-index: 1; overflow: hidden;">
+        <table class="crayon-table" style="">
+          <tbody>
+            <tr class="crayon-row">
+              <td class="crayon-nums " data-settings="show">
+                <div class="crayon-nums-content" style="font-size: 16px !important; line-height: 32px !important;">
+                  <div class="crayon-num" data-line="crayon-5f5b5fc11cd84901795364-1" style="height: 32px;">1</div>
+                  <div class="crayon-num" data-line="crayon-5f5b5fc11cd84901795364-2" style="height: 32px;">2</div>
+                  <div class="crayon-num" data-line="crayon-5f5b5fc11cd84901795364-3" style="height: 32px;">3</div>
+                </div>
+              </td>
+              <td class="crayon-code">
+                <div class="crayon-pre"
+                  style="font-size: 16px !important; line-height: 32px !important; -moz-tab-size:4; -o-tab-size:4; -webkit-tab-size:4; tab-size:4;">
+                  <div class="crayon-line" id="crayon-5f5b5fc11cd84901795364-1">&nbsp;</div>
+                  <div class="crayon-line" id="crayon-5f5b5fc11cd84901795364-2"><span
+                      class="crayon-v">$users</span><span class="crayon-h"> </span><span class="crayon-o">=</span><span
+                      class="crayon-h"> </span><span class="crayon-i">App</span><span class="crayon-sy">\</span><span
+                      class="crayon-e">User::</span><span class="crayon-e">popular</span><span
+                      class="crayon-sy">(</span><span class="crayon-sy">)</span><span class="crayon-o">-&gt;</span><span
+                      class="crayon-i">orWhere</span><span class="crayon-o">-&gt;</span><span
+                      class="crayon-e">active</span><span class="crayon-sy">(</span><span
+                      class="crayon-sy">)</span><span class="crayon-o">-&gt;</span><span
+                      class="crayon-e">get</span><span class="crayon-sy">(</span><span class="crayon-sy">)</span><span
+                      class="crayon-sy">;</span></div>
+                  <div class="crayon-line" id="crayon-5f5b5fc11cd84901795364-3">&nbsp;</div>
+                </div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <p></p>
+    <h3>Mejoras al comando artisan serve</h3>
+    <p>En versiones anteriores de Laravel, el comando <code class="c-code">serve</code> de Artisan levantaría tu
+      aplicación en el puerto <code class="c-code">8000</code>. Si otro proceso del comando <code
+        class="c-code">serve</code> ya estaba escuchando en este puerto, un intento de levantar una segunda
+      aplicación a través de <code class="c-code">serve</code> fallaría. A partir de Laravel 5.8, <code
+        class="c-code">serve</code> ahora buscará los puertos disponibles hasta el puerto <code
+        class="c-code">8009</code>, lo que te permite levantar múltiples aplicaciones a la vez.</p>
+    <h3>Mapeo de archivos blade</h3>
+    <p>Al compilar plantillas Blade, Laravel ahora agrega un comentario en la parte superior del archivo compilado
+      que contiene la ruta a la plantilla Blade original.</p>
+    <h3>Drivers de DynamoDB para cache y sesión</h3>
+    <p>Laravel 5.8 introduce <a href="https://aws.amazon.com/dynamodb/">DynamoDB</a> drivers para cache y sesión.
+      DynamoDB es una base de datos NoSQL sin servidor proporcionada por Amazon Web Services. La configuración
+      predeterminada para el driver de caché <code class="c-code">dynamodb</code> se puede encontrar en el <a
+        href="https://github.com/laravel/laravel/blob/master/config/cache.php">archivo de configuración para
+        cache</a> de Laravel 5.8.</p>
+    <h3>Soporte para Carbon 2.0</h3>
+    <p>Laravel 5.8 proporciona soporte para la versión <code class="c-code">~ 2.0</code> del paquete de manipulación
+      de fechas Carbon.</p>
+    <h3>Soporte para Pheanstalk 4.0</h3>
+    <p>Laravel 5.8 proporciona soporte para la versión <code class="c-code">~ 4.0</code> del paquete de colas
+      Pheanstalk. Si estás utilizando el paquete Pheanstalk en tu aplicación, actualiza tu paquete a la versión
+      <code class="c-code">~ 4.0</code> a través de Composer.</p>
+    <p>
+      <a href="https://styde.net/planes/">Regístrate hoy en Styde</a>
+      y obtén acceso a todo nuestro contenido.
+    </p>
+    <div class="box-post-author">
+      <div class="author-avatar">
+        <img alt="Duilio Palacios"
+          src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2060%2060'%3E%3C/svg%3E"
+          data-lazy-srcset="https://secure.gravatar.com/avatar/21c2ea17a6745191fb906f12b2c61870?s=120&amp;d=mm&amp;r=g 2x"
+          class="avatar avatar-60 photo" height="60" width="60"
+          data-lazy-src="https://secure.gravatar.com/avatar/21c2ea17a6745191fb906f12b2c61870?s=60&amp;d=mm&amp;r=g"><noscript><img
+            alt='Duilio Palacios'
+            src='https://secure.gravatar.com/avatar/21c2ea17a6745191fb906f12b2c61870?s=60&#038;d=mm&#038;r=g'
+            srcset='https://secure.gravatar.com/avatar/21c2ea17a6745191fb906f12b2c61870?s=120&#038;d=mm&#038;r=g 2x'
+            class='avatar avatar-60 photo' height='60' width='60' /></noscript> </div>
+      <div class="author-details">
+        <h4>
+          Publicado por:
+          <a href="https://styde.net/perfil/duilio/" title="Entradas de Duilio Palacios" rel="author">Duilio
+            Palacios</a> </h4>
+        <p>Programador y profesor de PHP y Laravel. Creador de Styde.net.</p>
+        <ul class="author-links">
+          <li class="user-url"><a href="https://twitter.com/sileence/" target="_blank">https://twitter.com/sileence/</a>
+          </li>
+          <li><a href="https://www.facebook.com/duilio.me/" target="_blank"><i class="icon-facebook"></i></a>
+          </li>
+          <li><a href="http://www.twitter.com/sileence" target="_blank"><i class="icon-twitter"></i></a></li>
+          <li><a href="https://www.youtube.com/user/silencedsg" target="_blank"><i class="icon-youtube-play"></i></a>
+          </li>
+          <li><a href="https://plus.google.com/117650268708316821283" target="_blank"><i class="icon-google"></i></a>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <p class="tags"><i class="icon-tags"></i><a href="https://styde.net/tag/laravel-6/" rel="tag">Laravel 6</a> <a
+        href="https://styde.net/tag/versiones/" rel="tag">Versiones</a> </p>
+    <p class="post-neighbours">
+      <a href="https://styde.net/laravel-6-doc-telescope/" class="lnk-prev"><span class="neighbour-type"><i
+            class="icon-left-open-1"></i> Lección anterior</span> <strong>Laravel Telescope - Documentación
+          de Laravel 6</strong></a>
+      <a href="https://styde.net/laravel-6-doc-guia-de-actualizacion/" class="lnk-next"><span
+          class="neighbour-type">Lección siguiente <i class="icon-right-open-1"></i></span> <strong>Guía de
+          Actualización - Documentación de Laravel 6</strong></a>
+    </p>
+    <div class="clear"></div>
+    <br>
+  </div>
+  <div class="col4 m-1_3 col-sidebar">
+    <aside id="search" class="box widget widget_search">
+      <form role="search" method="get" id="searchform" class="searchform" action="https://styde.net/">
+        <div>
+          <label class="screen-reader-text" for="s">Buscar:</label>
+          <input type="text" value="" name="s" id="s">
+          <input type="submit" id="searchsubmit" value="Buscar">
+        </div>
+      </form><i class="fa fa-search"></i>
+    </aside>
+    <aside class="box widget">
+      <h5>Cursos destacados</h5>
+      <ul>
+        <li><strong>PHP orientado a objetos</strong></li>
+        <li>
+          <a href="https://styde.net/curso-de-programacion-orientada-a-objetos-con-php/">
+            Programación Orientada a Objetos </a>
+        </li>
+        <li>
+          <a href="https://styde.net/curso-de-refactorizacion-con-php/">
+            Curso de Refactorización con PHP </a>
+        </li>
+        <li>
+          <a href="https://styde.net/curso-de-patrones-de-diseno-con-php/">
+            Curso de Patrones de Diseño con PHP </a>
+        </li>
+      </ul>
+      <ul>
+        <li><strong>Desarrollo con Laravel</strong></li>
+        <li>
+          <a href="https://styde.net/laravel-6/">
+            Primeros pasos con Laravel </a>
+        </li>
+        <li>
+          <a href="https://styde.net/laravel-5/">
+            Curso de Laravel desde cero con TDD </a>
+        </li>
+        <li>
+          <a href="https://styde.net/crea-un-panel-de-control-con-laravel/">
+            Crea un Panel de Control con Laravel </a>
+        </li>
+        <li>
+          <a href="https://styde.net/tecnicas-de-autorizacion-con-laravel/">
+            Técnicas de Autorización con Laravel </a>
+        </li>
+      </ul>
+      <ul>
+        <li><strong>Front end</strong></li>
+        <li>
+          <a href="https://styde.net/curso-de-vue-2/">
+            Curso de Vue 2 </a>
+        </li>
+        <li>
+          <a href="https://styde.net/curso-de-sass/">
+            Curso de Sass </a>
+        </li>
+      </ul>
+      <ul>
+        <li><strong>Administración y configuración</strong></li>
+        <li>
+          <a href="https://styde.net/curso-basico-de-terminal/">
+            Curso básico de Terminal </a>
+        </li>
+        <li>
+          <a href="https://styde.net/curso-de-git/">
+            Curso de Git </a>
+        </li>
+        <li>
+          <a href="https://styde.net/curso-de-docker/">
+            Curso de Docker </a>
+        </li>
+      </ul>
+      <p><a href="https://styde.net/cursos/" class="btn btn-small">Ver todos</a></p>
+    </aside>
+    <aside class="txtc sidebar-banner">
+      <a href="/planes/">
+        <img src="https://styde.net/images/2018_Gen_sidebar.jpg" alt="Banner" title="Únete a Styde" class="lazyloaded"
+          data-ll-status="loaded"><noscript><img src="https://styde.net/images/2018_Gen_sidebar.jpg" alt="Banner"
+            title="Únete a Styde"></noscript>
+      </a>
+    </aside>
+  </div>
+</div>
